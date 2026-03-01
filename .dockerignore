@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+.gitignore
+*.md
+docs-research-gemini.txt
+.env*
+.vscode
+.idea

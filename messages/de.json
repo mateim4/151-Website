@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "title": "151 | Senior Infrastrukturarchitektur",
+    "description": "Elite-Infrastrukturdesign, Automatisierung und Technical Design Authority Beratung. Mit Sitz in Luxemburg."
+  },
+  "nav": {
+    "home": "Startseite",
+    "scope": "Expertise",
+    "methodology": "Methodik",
+    "about": "Der Architekt",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Senior Infrastrukturarchitektur",
+      "subtitle": "Widerstandsf\u00e4hige, skalierbare Systeme f\u00fcr Unternehmen, die keine Kompromisse bei Leistung, Sicherheit oder Souver\u00e4nit\u00e4t eingehen.",
+      "cta": "Unsere Methodik Entdecken",
+      "ctaSecondary": "Kompetenzbereich"
+    },
+    "standard": {
+      "title": "Kompromisslose Technik",
+      "body": "In einer \u00c4ra verteilter Workloads, st\u00e4ndiger Cyberbedrohungen und strenger Compliance-Rahmenwerke sind starre IT-Umgebungen eine kritische Belastung. 151 \u00fcberbr\u00fcckt die Kluft zwischen Legacy-Rechenzentren und dynamischen, KI-gesteuerten L\u00f6sungen."
+    },
+    "competencies": {
+      "title": "Kernkompetenzen",
+      "infra": {
+        "title": "Infrastrukturdesign",
+        "desc": "Architektur hochverf\u00fcgbarer Umgebungen, die On-Premises-Souver\u00e4nit\u00e4t mit hybrider Cloud-Agilit\u00e4t vereinen."
+      },
+      "automation": {
+        "title": "Automatisierung & MLOps",
+        "desc": "Eliminierung manueller Konfigurationen durch CI/CD-Pipelines und Infrastructure-as-Code-Deployments."
+      },
+      "ai": {
+        "title": "Ma\u00dfgeschneiderte KI-L\u00f6sungen",
+        "desc": "Entwurf GPU-beschleunigter Architekturen und sicherer Daten-Pipelines f\u00fcr intensive Machine-Learning-Workloads."
+      },
+      "audit": {
+        "title": "Audit & Governance",
+        "desc": "Tiefgreifende technische Audits zur Beseitigung von Engp\u00e4ssen, Kostenoptimierung und Zero-Trust-Sicherheit."
+      }
+    },
+    "cta": {
+      "title": "Bereit, Ihre Zukunft zu gestalten?",
+      "subtitle": "Lassen Sie uns besprechen, wie 151 Ihre Infrastruktur transformieren kann.",
+      "button": "Kontakt Aufnehmen"
+    }
+  },
+  "scope": {
+    "title": "F\u00e4higkeiten & Technischer Umfang",
+    "subtitle": "Wahre Infrastrukturbeherrschung erfordert das Verst\u00e4ndnis des gesamten technologischen Kontinuums. Von der Bare-Metal-Bereitstellung bis zur KI-\u00d6kosystem-Integration bietet 151 durchg\u00e4ngige architektonische Umsetzung.",
+    "domains": {
+      "compute": {
+        "title": "Compute & Virtualisierung",
+        "desc": "Hochverf\u00fcgbare Umgebungen mit Enterprise-Hypervisoren, Container-Orchestrierung und Bare-Metal-Optimierung."
+      },
+      "network": {
+        "title": "Netzwerkarchitektur",
+        "desc": "Erweitertes Routing, Firewall-Backbones, SD-WAN und Zero-Trust-Netzwerksegmentierung."
+      },
+      "storage": {
+        "title": "Speicher & Datenschutz",
+        "desc": "SAN/NAS-Konfigurationen, All-Flash-Arrays, Backup-Strategien und Disaster Recovery."
+      },
+      "cloud": {
+        "title": "Cloud & Hybrid",
+        "desc": "Multi-Cloud-Orchestrierung, Hybrid-Konnektivit\u00e4t, Cloud-native Services und Datensouver\u00e4nit\u00e4t."
+      },
+      "security": {
+        "title": "Sicherheitsinfrastruktur",
+        "desc": "Zero-Trust-Architektur, Identit\u00e4tsmanagement, Verschl\u00fcsselung und SIEM-Integration."
+      },
+      "automation": {
+        "title": "Observability & Automatisierung",
+        "desc": "Infrastructure as Code, Konfigurationsmanagement, Telemetrie-Pipelines und vorausschauende Wartung."
+      }
+    }
+  },
+  "methodology": {
+    "title": "Technical Design Authority & Governance",
+    "subtitle": "Technologie scheitert, wenn sie von der Gesch\u00e4ftsstrategie entkoppelt wird. Als Technical Design Authority stellt 151 sicher, dass jede Komponente mit der Unternehmensgovernance \u00fcbereinstimmt.",
+    "phases": {
+      "think": {
+        "title": "Denken",
+        "subtitle": "Entdeckung & Analyse",
+        "desc": "Stakeholder-Mapping, Infrastruktur-Audit, L\u00fcckenanalyse und Anforderungserhebung.",
+        "deliverables": "Auditbericht, L\u00fcckenanalyse, Anforderungsspezifikation"
+      },
+      "design": {
+        "title": "Entwerfen",
+        "subtitle": "Architektur & Planung",
+        "desc": "Referenzarchitekturen, Kapazit\u00e4tsplanung, Migrationspfade und umfassende Dokumentation.",
+        "deliverables": "Architektur-Blueprint, Migrationsplan, Risikobewertung"
+      },
+      "act": {
+        "title": "Handeln",
+        "subtitle": "Umsetzung & Transfer",
+        "desc": "Deployment-Ausf\u00fchrung, Wissenstransfer, operative \u00dcbergabe und Post-Deployment-Validierung.",
+        "deliverables": "Bereitgestellte Infrastruktur, Runbooks, Schulungsmaterialien"
+      }
+    },
+    "frameworks": {
+      "title": "Frameworks & Standards",
+      "togaf": "TOGAF-orientierte Architekturabbildung f\u00fcr umfassendes Unternehmensdesign.",
+      "itil": "ITIL-basiertes Servicemanagement f\u00fcr reibungslose operative Bereitstellung.",
+      "dora": "DORA-Compliance-Architektur f\u00fcr die Widerstandsf\u00e4higkeit des Finanzsektors."
+    }
+  },
+  "about": {
+    "title": "Der Architekt",
+    "subtitle": "Mit Sitz in Luxemburg \u2014 im Herzen des europ\u00e4ischen Finanz- und Technologiesektors.",
+    "bio": "Mit tiefer Spezialisierung auf On-Premises-L\u00f6sungen, hybride Cloud-Integrationen und Infrastrukturautomatisierung hat der Architekt hinter 151 die digitalen Grundlagen f\u00fcr anspruchsvollste operative Umgebungen geschaffen.",
+    "quote": "Architektur bedeutet nicht, die komplexeste Technologie zu w\u00e4hlen, sondern die am besten geeignete.",
+    "contact": {
+      "title": "Sprechen wir dar\u00fcber",
+      "subtitle": "Vereinbaren Sie eine Beratung zu Ihren Infrastruktur-Herausforderungen.",
+      "name": "Name",
+      "email": "E-Mail",
+      "company": "Unternehmen",
+      "message": "Nachricht",
+      "send": "Nachricht Senden",
+      "success": "Nachricht erfolgreich gesendet. Wir melden uns bei Ihnen.",
+      "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+    }
+  },
+  "footer": {
+    "legal": "Impressum",
+    "privacy": "Datenschutzerkl\u00e4rung",
+    "copyright": "\u00a9 {year} 151. Alle Rechte vorbehalten.",
+    "tagline": "Resiliente Digitale Grundlagen Gestalten"
+  },
+  "common": {
+    "learnMore": "Mehr Erfahren",
+    "getInTouch": "Kontakt Aufnehmen",
+    "backToTop": "Nach Oben",
+    "viewAll": "Alle Anzeigen"
+  }
+}

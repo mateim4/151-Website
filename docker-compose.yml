@@ -1,0 +1,35 @@
+services:
+  web:
+    build: .
+    container_name: 151-web
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    networks:
+      - 151-network
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: 151-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"  # HTTP/3 (QUIC)
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web
+    networks:
+      - 151-network
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  151-network:
+    driver: bridge

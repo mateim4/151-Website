@@ -1,0 +1,30 @@
+# Replace with your actual domain
+# For local development, use :80 or localhost
+{$SITE_DOMAIN:localhost} {
+	# Reverse proxy to Next.js
+	reverse_proxy web:3000
+
+	# Security headers
+	header {
+		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		X-XSS-Protection "0"
+		-Server
+	}
+
+	# Compress responses
+	encode gzip zstd
+
+	# Cache static assets aggressively
+	@static path /_next/static/* /fonts/* /images/*
+	header @static Cache-Control "public, max-age=31536000, immutable"
+
+	# Log access
+	log {
+		output stdout
+		format console
+	}
+}

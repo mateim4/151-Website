@@ -1,26 +1,166 @@
 @import "tailwindcss";
+@import "../styles/151-theme.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================================
+   Tailwind v4 Theme Configuration for 151
+   ============================================================================ */
+
+@theme {
+  /* --- Typography --- */
+  --font-display: "Poppins", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Consolas", monospace;
+
+  /* --- 151 Brand Colors --- */
+  --color-magenta-50: var(--151-magenta-50);
+  --color-magenta-100: var(--151-magenta-100);
+  --color-magenta-200: var(--151-magenta-200);
+  --color-magenta-300: var(--151-magenta-300);
+  --color-magenta-400: var(--151-magenta-400);
+  --color-magenta-500: var(--151-magenta-500);
+  --color-magenta-600: var(--151-magenta-600);
+  --color-magenta-700: var(--151-magenta-700);
+  --color-magenta-800: var(--151-magenta-800);
+  --color-magenta-900: var(--151-magenta-900);
+
+  --color-teal-50: var(--151-teal-50);
+  --color-teal-100: var(--151-teal-100);
+  --color-teal-200: var(--151-teal-200);
+  --color-teal-300: var(--151-teal-300);
+  --color-teal-400: var(--151-teal-400);
+  --color-teal-500: var(--151-teal-500);
+  --color-teal-600: var(--151-teal-600);
+  --color-teal-700: var(--151-teal-700);
+  --color-teal-800: var(--151-teal-800);
+  --color-teal-900: var(--151-teal-900);
+
+  /* --- Semantic Colors --- */
+  --color-bg-primary: var(--151-bg-primary);
+  --color-bg-surface: var(--151-bg-surface);
+  --color-bg-elevated: var(--151-bg-elevated);
+  --color-bg-card: var(--151-bg-card);
+
+  --color-text-primary: var(--151-text-primary);
+  --color-text-secondary: var(--151-text-secondary);
+  --color-text-muted: var(--151-text-muted);
+
+  --color-border-subtle: var(--151-border-subtle);
+  --color-border-medium: var(--151-border-medium);
+
+  /* --- Animation --- */
+  --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-fade-up: fade-up 0.6s ease-out;
+  --animate-scale-in: scale-in 0.5s ease-out;
+  --animate-orb-float: orbFloat 20s ease-in-out infinite;
+
+  /* --- Spacing Scale --- */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  --spacing-112: 28rem;
+  --spacing-128: 32rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ============================================================================
+   Keyframe Animations
+   ============================================================================ */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ============================================================================
+   Base Styles
+   ============================================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--151-bg-primary);
+  color: var(--151-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* ============================================================================
+   Focus & Selection
+   ============================================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--151-magenta-500);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--151-magenta-500);
+  color: white;
+}
+
+/* ============================================================================
+   Scrollbar
+   ============================================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--151-border-medium);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--151-magenta-500);
+}
+
+/* ============================================================================
+   Reduced Motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

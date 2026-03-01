@@ -1,0 +1,161 @@
+/* ============================================================================
+   151 Brand Theme
+   Custom CSS properties layered on top of Alchemy design system.
+   ============================================================================ */
+
+:root {
+  /* === Magenta CTA Palette === */
+  --151-magenta-50: #FFF0FB;
+  --151-magenta-100: #FFD6F3;
+  --151-magenta-200: #FFADE7;
+  --151-magenta-300: #FF85DB;
+  --151-magenta-400: #FF5CCF;
+  --151-magenta-500: #FF40C2;
+  --151-magenta-600: #D930A0;
+  --151-magenta-700: #B3207E;
+  --151-magenta-800: #8D105C;
+  --151-magenta-900: #67003A;
+
+  /* === Teal Secondary Palette === */
+  --151-teal-50: #EDFFF9;
+  --151-teal-100: #C0FFF0;
+  --151-teal-200: #80FFE0;
+  --151-teal-300: #40FFD1;
+  --151-teal-400: #00EDBB;
+  --151-teal-500: #00D4AA;
+  --151-teal-600: #00AD8B;
+  --151-teal-700: #00876C;
+  --151-teal-800: #00614D;
+  --151-teal-900: #003B2E;
+
+  /* === Brand Gradients === */
+  --151-gradient-brand: linear-gradient(135deg, #FF40C2 0%, #00D4AA 100%);
+  --151-gradient-brand-vibrant: linear-gradient(135deg, #FF40C2 0%, #FF5CCF 40%, #00D4AA 100%);
+  --151-gradient-brand-subtle: linear-gradient(135deg, rgba(255, 64, 194, 0.15) 0%, rgba(0, 212, 170, 0.08) 100%);
+  --151-gradient-cta: linear-gradient(135deg, #FF40C2 0%, #D930A0 100%);
+  --151-gradient-cta-hover: linear-gradient(135deg, #FF5CCF 0%, #FF40C2 100%);
+}
+
+/* === Dark Mode (Default) === */
+[data-theme="dark"], .dark {
+  --151-bg-primary: #080B12;
+  --151-bg-surface: #0C0F18;
+  --151-bg-elevated: #121620;
+  --151-bg-card: #161A26;
+  --151-bg-section-alt: #0A0D16;
+
+  --151-text-primary: #E8EAF0;
+  --151-text-secondary: #9CA3B4;
+  --151-text-muted: #6B7288;
+
+  --151-border-subtle: rgba(255, 255, 255, 0.06);
+  --151-border-medium: rgba(255, 255, 255, 0.1);
+
+  --151-glass-bg: rgba(12, 15, 24, 0.75);
+  --151-glass-bg-heavy: rgba(12, 15, 24, 0.92);
+  --151-glass-border: rgba(255, 255, 255, 0.06);
+  --151-glass-nav: rgba(12, 15, 24, 0.6);
+  --151-glass-nav-scrolled: rgba(12, 15, 24, 0.88);
+
+  --151-glow-magenta: rgba(255, 64, 194, 0.4);
+  --151-glow-teal: rgba(0, 212, 170, 0.3);
+}
+
+/* === Light Mode === */
+[data-theme="light"], .light {
+  --151-bg-primary: #FAFBFE;
+  --151-bg-surface: #F5F6FA;
+  --151-bg-elevated: #EDEEF4;
+  --151-bg-card: #FFFFFF;
+  --151-bg-section-alt: #F0F1F7;
+
+  --151-text-primary: #1A1D28;
+  --151-text-secondary: #4A5068;
+  --151-text-muted: #7A7F94;
+
+  --151-border-subtle: rgba(0, 0, 0, 0.06);
+  --151-border-medium: rgba(0, 0, 0, 0.1);
+
+  --151-glass-bg: rgba(250, 251, 254, 0.75);
+  --151-glass-bg-heavy: rgba(250, 251, 254, 0.92);
+  --151-glass-border: rgba(0, 0, 0, 0.06);
+  --151-glass-nav: rgba(250, 251, 254, 0.6);
+  --151-glass-nav-scrolled: rgba(250, 251, 254, 0.88);
+
+  --151-glow-magenta: rgba(179, 32, 126, 0.2);
+  --151-glow-teal: rgba(0, 135, 108, 0.15);
+}
+
+/* === Glass Navbar === */
+.nav-glass {
+  background: var(--151-glass-nav);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--151-glass-border);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.nav-glass.scrolled {
+  background: var(--151-glass-nav-scrolled);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* === 151 Glass Panel === */
+.glass-151 {
+  background: var(--151-glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--151-glass-border);
+  border-radius: 16px;
+}
+
+/* === Gradient Text === */
+.text-151-gradient {
+  background: var(--151-gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === Gradient Orb (Background Decoration) === */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+.gradient-orb.magenta {
+  background: radial-gradient(circle, rgba(255, 64, 194, 0.15) 0%, transparent 70%);
+}
+
+.gradient-orb.teal {
+  background: radial-gradient(circle, rgba(0, 212, 170, 0.12) 0%, transparent 70%);
+  animation-delay: -7s;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+/* === Scroll Progress Bar === */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--151-gradient-brand);
+  transform-origin: left;
+  z-index: 9999;
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  .gradient-orb {
+    animation: none;
+  }
+}

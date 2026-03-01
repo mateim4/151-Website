@@ -19,7 +19,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@alchemy/components/*": ["../Alchemy/src/components/*"],
+      "@alchemy/utils/*": ["../Alchemy/src/utils/*"],
+      "@alchemy/theme": ["../Alchemy/src/components/ThemeProvider/ThemeProvider"]
     }
   },
   "include": [

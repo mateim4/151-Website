@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "title": "151 | Senior Infrastructure Architecture",
+    "description": "Elite infrastructure design, automation, and Technical Design Authority consulting. Based in Luxembourg."
+  },
+  "nav": {
+    "home": "Home",
+    "scope": "Expertise",
+    "methodology": "Methodology",
+    "about": "The Architect",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Senior Infrastructure Architecture",
+      "subtitle": "Designing resilient, scalable systems for enterprises that refuse to compromise on performance, security, or sovereignty.",
+      "cta": "Explore Our Methodology",
+      "ctaSecondary": "Scope of Expertise"
+    },
+    "standard": {
+      "title": "Engineering Without Compromise",
+      "body": "In an era defined by distributed workloads, relentless cyber threats, and rigorous compliance frameworks, rigid IT environments are a critical liability. 151 bridges the gap between legacy datacenters and dynamic, AI-driven solutions. We institute comprehensive automation ecosystems, leveraging Infrastructure as Code to guarantee repeatability, scalability, and operational resilience."
+    },
+    "competencies": {
+      "title": "Core Competencies",
+      "infra": {
+        "title": "Infrastructure Design",
+        "desc": "Architecting high-availability environments tailored to enterprise workloads, balancing on-premises sovereignty with hybrid cloud agility."
+      },
+      "automation": {
+        "title": "Automation & MLOps",
+        "desc": "Eradicating manual configurations through CI/CD pipelines and Infrastructure as Code deployments."
+      },
+      "ai": {
+        "title": "Custom AI Solutions",
+        "desc": "Designing GPU-accelerated architectures and secure data engineering pipelines for intensive machine learning workloads."
+      },
+      "audit": {
+        "title": "Auditing & Governance",
+        "desc": "Deep-dive technical audits to rectify bottlenecks, optimize spend, and enforce zero-trust security."
+      }
+    },
+    "cta": {
+      "title": "Ready to architect your future?",
+      "subtitle": "Let\u2019s discuss how 151 can transform your infrastructure.",
+      "button": "Get in Touch"
+    }
+  },
+  "scope": {
+    "title": "Capabilities & Technical Scope",
+    "subtitle": "True infrastructure mastery requires understanding the entire technological continuum. From bare-metal provisioning to AI ecosystem integration, 151 provides end-to-end architectural execution.",
+    "domains": {
+      "compute": {
+        "title": "Compute & Virtualization",
+        "desc": "High-availability environments with enterprise-grade hypervisors, container orchestration, and bare-metal optimization."
+      },
+      "network": {
+        "title": "Network Architecture",
+        "desc": "Advanced routing, firewall backbones, SD-WAN, and zero-trust network segmentation for complex topologies."
+      },
+      "storage": {
+        "title": "Storage & Data Protection",
+        "desc": "SAN/NAS configurations, all-flash arrays, backup strategies, and disaster recovery with predictive monitoring."
+      },
+      "cloud": {
+        "title": "Cloud & Hybrid",
+        "desc": "Multi-cloud orchestration, hybrid connectivity, cloud-native services, and data sovereignty compliance."
+      },
+      "security": {
+        "title": "Security Infrastructure",
+        "desc": "Zero-trust architecture, identity management, encryption at rest and in transit, SIEM integration."
+      },
+      "automation": {
+        "title": "Observability & Automation",
+        "desc": "Infrastructure as Code, configuration management, telemetry pipelines, and predictive maintenance systems."
+      }
+    }
+  },
+  "methodology": {
+    "title": "Technical Design Authority & Governance",
+    "subtitle": "Technology fails when decoupled from business strategy. As Technical Design Authority, 151 ensures every component is aligned with enterprise governance.",
+    "phases": {
+      "think": {
+        "title": "Think",
+        "subtitle": "Discovery & Analysis",
+        "desc": "Stakeholder mapping, infrastructure auditing, gap analysis, and requirements engineering. We understand before we design.",
+        "deliverables": "Audit Report, Gap Analysis, Requirements Specification"
+      },
+      "design": {
+        "title": "Design",
+        "subtitle": "Architecture & Planning",
+        "desc": "Reference architectures, capacity planning, migration paths, and comprehensive documentation. Every decision is traceable.",
+        "deliverables": "Architecture Blueprint, Migration Plan, Risk Assessment"
+      },
+      "act": {
+        "title": "Act",
+        "subtitle": "Implementation & Transfer",
+        "desc": "Deployment execution, knowledge transfer, operational handover, and post-deployment validation. We ensure continuity.",
+        "deliverables": "Deployed Infrastructure, Runbooks, Training Materials"
+      }
+    },
+    "frameworks": {
+      "title": "Frameworks & Standards",
+      "togaf": "TOGAF-aligned architectural mapping for comprehensive enterprise design.",
+      "itil": "ITIL-based service management for flawless operational delivery.",
+      "dora": "DORA compliance architecture for financial sector resilience."
+    }
+  },
+  "about": {
+    "title": "The Architect",
+    "subtitle": "Based in Luxembourg \u2014 at the heart of Europe\u2019s financial and technological sector.",
+    "bio": "With deep specialization in on-premises solutions, hybrid cloud integrations, and infrastructure automation, the architect behind 151 has engineered digital foundations for some of the most demanding operational environments.",
+    "quote": "Architecture is not about selecting the most complex technology; it is about selecting the most appropriate technology.",
+    "contact": {
+      "title": "Let\u2019s Talk",
+      "subtitle": "Schedule a consultation to discuss your infrastructure challenges.",
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "message": "Message",
+      "send": "Send Message",
+      "success": "Message sent successfully. We\u2019ll be in touch.",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "footer": {
+    "legal": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "copyright": "\u00a9 {year} 151. All rights reserved.",
+    "tagline": "Architecting Resilient Digital Foundations"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "getInTouch": "Get in Touch",
+    "backToTop": "Back to Top",
+    "viewAll": "View All"
+  }
+}

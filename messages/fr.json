@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "title": "151 | Architecture d\u2019Infrastructure Senior",
+    "description": "Conception d\u2019infrastructure d\u2019\u00e9lite, automatisation et conseil en Design Authority Technique. Bas\u00e9 au Luxembourg."
+  },
+  "nav": {
+    "home": "Accueil",
+    "scope": "Expertise",
+    "methodology": "M\u00e9thodologie",
+    "about": "L\u2019Architecte",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Architecture d\u2019Infrastructure Senior",
+      "subtitle": "Concevoir des syst\u00e8mes r\u00e9silients et \u00e9volutifs pour les entreprises qui refusent tout compromis sur la performance, la s\u00e9curit\u00e9 ou la souverainet\u00e9.",
+      "cta": "D\u00e9couvrir Notre M\u00e9thodologie",
+      "ctaSecondary": "P\u00e9rim\u00e8tre d\u2019Expertise"
+    },
+    "standard": {
+      "title": "L\u2019Ing\u00e9nierie Sans Compromis",
+      "body": "Dans une \u00e8re d\u00e9finie par les charges de travail distribu\u00e9es, les cybermenaces constantes et les cadres r\u00e9glementaires rigoureux, les environnements IT rigides sont un passif critique. 151 comble le foss\u00e9 entre les datacenters traditionnels et les solutions dynamiques pilot\u00e9es par l\u2019IA."
+    },
+    "competencies": {
+      "title": "Comp\u00e9tences Cl\u00e9s",
+      "infra": {
+        "title": "Conception d\u2019Infrastructure",
+        "desc": "Architecture d\u2019environnements haute disponibilit\u00e9 adapt\u00e9s aux charges de travail, alliant souverainet\u00e9 on-premises et agilit\u00e9 cloud hybride."
+      },
+      "automation": {
+        "title": "Automatisation & MLOps",
+        "desc": "\u00c9limination des configurations manuelles gr\u00e2ce aux pipelines CI/CD et aux d\u00e9ploiements Infrastructure as Code."
+      },
+      "ai": {
+        "title": "Solutions IA Sur Mesure",
+        "desc": "Conception d\u2019architectures acc\u00e9l\u00e9r\u00e9es par GPU et pipelines de donn\u00e9es s\u00e9curis\u00e9s pour les charges de machine learning intensives."
+      },
+      "audit": {
+        "title": "Audit & Gouvernance",
+        "desc": "Audits techniques approfondis pour corriger les goulets d\u2019\u00e9tranglement, optimiser les co\u00fbts et appliquer la s\u00e9curit\u00e9 zero-trust."
+      }
+    },
+    "cta": {
+      "title": "Pr\u00eat \u00e0 architecturer votre avenir ?",
+      "subtitle": "Discutons de la transformation de votre infrastructure avec 151.",
+      "button": "Nous Contacter"
+    }
+  },
+  "scope": {
+    "title": "Capacit\u00e9s & P\u00e9rim\u00e8tre Technique",
+    "subtitle": "La ma\u00eetrise de l\u2019infrastructure exige la compr\u00e9hension de l\u2019ensemble du continuum technologique. Du provisionnement bare-metal \u00e0 l\u2019int\u00e9gration d\u2019\u00e9cosyst\u00e8mes IA, 151 fournit une ex\u00e9cution architecturale de bout en bout.",
+    "domains": {
+      "compute": {
+        "title": "Calcul & Virtualisation",
+        "desc": "Environnements haute disponibilit\u00e9 avec hyperviseurs enterprise, orchestration de conteneurs et optimisation bare-metal."
+      },
+      "network": {
+        "title": "Architecture R\u00e9seau",
+        "desc": "Routage avanc\u00e9, pare-feu, SD-WAN et segmentation r\u00e9seau zero-trust pour les topologies complexes."
+      },
+      "storage": {
+        "title": "Stockage & Protection des Donn\u00e9es",
+        "desc": "Configurations SAN/NAS, baies full-flash, strat\u00e9gies de sauvegarde et reprise apr\u00e8s sinistre."
+      },
+      "cloud": {
+        "title": "Cloud & Hybride",
+        "desc": "Orchestration multi-cloud, connectivit\u00e9 hybride, services cloud-natifs et conformit\u00e9 souverainet\u00e9 des donn\u00e9es."
+      },
+      "security": {
+        "title": "Infrastructure de S\u00e9curit\u00e9",
+        "desc": "Architecture zero-trust, gestion des identit\u00e9s, chiffrement et int\u00e9gration SIEM."
+      },
+      "automation": {
+        "title": "Observabilit\u00e9 & Automatisation",
+        "desc": "Infrastructure as Code, gestion de configuration, pipelines de t\u00e9l\u00e9m\u00e9trie et maintenance pr\u00e9dictive."
+      }
+    }
+  },
+  "methodology": {
+    "title": "Design Authority Technique & Gouvernance",
+    "subtitle": "La technologie \u00e9choue lorsqu\u2019elle est d\u00e9coupl\u00e9e de la strat\u00e9gie d\u2019entreprise. En tant que Design Authority Technique, 151 garantit l\u2019alignement de chaque composant avec la gouvernance.",
+    "phases": {
+      "think": {
+        "title": "Penser",
+        "subtitle": "D\u00e9couverte & Analyse",
+        "desc": "Cartographie des parties prenantes, audit d\u2019infrastructure, analyse des \u00e9carts et ing\u00e9nierie des exigences.",
+        "deliverables": "Rapport d\u2019Audit, Analyse des \u00c9carts, Sp\u00e9cification des Exigences"
+      },
+      "design": {
+        "title": "Concevoir",
+        "subtitle": "Architecture & Planification",
+        "desc": "Architectures de r\u00e9f\u00e9rence, planification capacitaire, chemins de migration et documentation compl\u00e8te.",
+        "deliverables": "Plan d\u2019Architecture, Plan de Migration, \u00c9valuation des Risques"
+      },
+      "act": {
+        "title": "Agir",
+        "subtitle": "Mise en \u0152uvre & Transfert",
+        "desc": "Ex\u00e9cution du d\u00e9ploiement, transfert de connaissances, passation op\u00e9rationnelle et validation post-d\u00e9ploiement.",
+        "deliverables": "Infrastructure D\u00e9ploy\u00e9e, Runbooks, Supports de Formation"
+      }
+    },
+    "frameworks": {
+      "title": "Cadres & Standards",
+      "togaf": "Cartographie architecturale align\u00e9e sur TOGAF pour une conception d\u2019entreprise compl\u00e8te.",
+      "itil": "Gestion de services bas\u00e9e sur ITIL pour une prestation op\u00e9rationnelle sans faille.",
+      "dora": "Architecture de conformit\u00e9 DORA pour la r\u00e9silience du secteur financier."
+    }
+  },
+  "about": {
+    "title": "L\u2019Architecte",
+    "subtitle": "Bas\u00e9 au Luxembourg \u2014 au c\u0153ur du secteur financier et technologique europ\u00e9en.",
+    "bio": "Fort d\u2019une sp\u00e9cialisation approfondie en solutions on-premises, int\u00e9grations cloud hybride et automatisation d\u2019infrastructure, l\u2019architecte derri\u00e8re 151 a con\u00e7u les fondations num\u00e9riques des environnements op\u00e9rationnels les plus exigeants.",
+    "quote": "L\u2019architecture ne consiste pas \u00e0 s\u00e9lectionner la technologie la plus complexe, mais la plus adapt\u00e9e.",
+    "contact": {
+      "title": "Parlons-en",
+      "subtitle": "Planifiez une consultation pour discuter de vos d\u00e9fis d\u2019infrastructure.",
+      "name": "Nom",
+      "email": "Email",
+      "company": "Entreprise",
+      "message": "Message",
+      "send": "Envoyer",
+      "success": "Message envoy\u00e9 avec succ\u00e8s. Nous vous recontacterons.",
+      "error": "Une erreur est survenue. Veuillez r\u00e9essayer."
+    }
+  },
+  "footer": {
+    "legal": "Mentions L\u00e9gales",
+    "privacy": "Politique de Confidentialit\u00e9",
+    "copyright": "\u00a9 {year} 151. Tous droits r\u00e9serv\u00e9s.",
+    "tagline": "Architecturer des Fondations Num\u00e9riques R\u00e9silientes"
+  },
+  "common": {
+    "learnMore": "En Savoir Plus",
+    "getInTouch": "Nous Contacter",
+    "backToTop": "Retour en Haut",
+    "viewAll": "Tout Voir"
+  }
+}
