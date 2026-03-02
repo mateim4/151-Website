@@ -164,3 +164,130 @@ code, pre {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================================================================
+   Blog Prose Styles
+   ============================================================================ */
+
+.prose-151 {
+  color: var(--151-text-secondary);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.prose-151 h2 {
+  color: var(--151-text-primary);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.prose-151 h3 {
+  color: var(--151-text-primary);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-151 p {
+  margin-bottom: 1.25rem;
+}
+
+.prose-151 a {
+  color: var(--151-magenta-500);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-151 a:hover {
+  color: var(--151-magenta-400);
+}
+
+.prose-151 strong {
+  color: var(--151-text-primary);
+  font-weight: 600;
+}
+
+.prose-151 ul, .prose-151 ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose-151 li {
+  margin-bottom: 0.5rem;
+}
+
+.prose-151 ul li::marker {
+  color: var(--151-magenta-500);
+}
+
+.prose-151 ol li::marker {
+  color: var(--151-magenta-500);
+  font-weight: 600;
+}
+
+.prose-151 blockquote {
+  border-left: 3px solid var(--151-magenta-500);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--151-text-muted);
+}
+
+.prose-151 code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--151-border-subtle);
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  color: var(--151-magenta-400);
+}
+
+.prose-151 pre {
+  background: var(--151-bg-surface);
+  border: 1px solid var(--151-border-subtle);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.prose-151 pre code {
+  background: none;
+  padding: 0;
+  color: var(--151-text-secondary);
+  font-size: inherit;
+}
+
+.prose-151 table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+.prose-151 th {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 2px solid var(--151-border-medium);
+  color: var(--151-text-primary);
+  font-weight: 600;
+}
+
+.prose-151 td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--151-border-subtle);
+}
+
+.prose-151 hr {
+  border: none;
+  border-top: 1px solid var(--151-border-subtle);
+  margin: 2rem 0;
+}

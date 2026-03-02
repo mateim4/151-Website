@@ -1,0 +1,95 @@
+---
+title: "DORA Compliance: What It Means for Your Infrastructure"
+titleFr: "Conformité DORA : Ce que cela signifie pour votre infrastructure"
+titleDe: "DORA-Compliance: Was es für Ihre Infrastruktur bedeutet"
+slug: "dora-compliance-infrastructure"
+date: "2025-11-15"
+author: "151"
+tags: ["DORA", "Compliance", "Infrastructure", "Financial Services"]
+readingTime: 8
+excerpt: "The Digital Operational Resilience Act is reshaping how financial entities approach ICT risk. Here's what infrastructure architects need to know."
+excerptFr: "Le règlement DORA redéfinit la gestion des risques ICT pour les entités financières. Voici ce que les architectes d'infrastructure doivent savoir."
+excerptDe: "Der Digital Operational Resilience Act verändert den Umgang von Finanzunternehmen mit ICT-Risiken. Was Infrastrukturarchitekten wissen müssen."
+---
+
+## The DORA Imperative
+
+The Digital Operational Resilience Act (DORA) — Regulation (EU) 2022/2554 — represents a paradigm shift in how the European financial sector manages ICT risk. Effective from January 2025, it mandates that financial entities establish comprehensive frameworks for ICT risk management, incident reporting, resilience testing, and third-party oversight.
+
+For infrastructure architects, DORA isn't just a compliance checkbox — it's a fundamental redesign of how we think about operational resilience.
+
+## Five Pillars, One Architecture
+
+DORA's requirements map directly to infrastructure architecture decisions:
+
+### 1. ICT Risk Management Framework
+
+Your infrastructure must support continuous asset discovery and dependency mapping. This means:
+
+- **Automated CMDB** with real-time topology updates
+- **Dependency graphs** that trace service chains from user-facing applications to bare-metal
+- **Risk scoring** integrated into change management workflows
+
+```yaml
+# Example: Ansible inventory with risk classification
+all:
+  children:
+    critical_tier1:
+      vars:
+        dora_risk_class: "critical"
+        rto_hours: 4
+        rpo_hours: 1
+      hosts:
+        core-db-01:
+          function: "Primary transaction database"
+        auth-server-01:
+          function: "Identity provider"
+```
+
+### 2. Incident Classification & Reporting
+
+DORA requires major ICT incidents to be reported to competent authorities within strict timeframes. Your monitoring stack must support:
+
+- **Automated severity classification** based on impact metrics
+- **Regulatory reporting workflows** with 4-hour initial notification SLAs
+- **Root cause analysis** with full audit trails
+
+### 3. Digital Operational Resilience Testing
+
+Regular testing — including threat-led penetration testing (TLPT) — must be embedded into operations:
+
+- **Automated DR failover tests** with measured RTO/RPO
+- **Chaos engineering** for critical service paths
+- **Red team exercises** against production-equivalent environments
+
+### 4. Third-Party ICT Risk
+
+Critical service providers must be monitored continuously:
+
+- **Concentration risk analysis** for cloud and managed service dependencies
+- **Exit strategies** with tested migration runbooks for every critical provider
+- **Contractual audit rights** enabling infrastructure inspections
+
+### 5. Information Sharing
+
+Participation in cyber threat intelligence sharing arrangements is encouraged:
+
+- **SIEM integration** with industry threat feeds
+- **Automated indicator correlation** for proactive defense
+- **Anonymized incident data** sharing with sector peers
+
+## Architecture Patterns for DORA
+
+The most effective DORA-compliant architectures share common patterns:
+
+**Active-Active Multi-Site**: Eliminates single points of failure and enables sub-4-hour RTO through automatic failover.
+
+**Immutable Infrastructure**: Infrastructure as Code ensures reproducibility and auditability — every change is versioned, reviewed, and traceable.
+
+**Zero-Trust Segmentation**: Microsegmented networks limit blast radius and provide granular audit trails required for incident investigation.
+
+## The 151 Approach
+
+At 151, we architect DORA compliance into the infrastructure from day one — not as an afterthought bolted onto existing systems. Our Technical Design Authority governance ensures that every architectural decision is traceable to a business requirement and a compliance obligation.
+
+The result: infrastructure that is resilient by design, not just compliant by documentation.

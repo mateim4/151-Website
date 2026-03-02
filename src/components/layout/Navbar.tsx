@@ -13,6 +13,9 @@ const navLinks = [
   { href: "/", key: "home" },
   { href: "/scope", key: "scope" },
   { href: "/methodology", key: "methodology" },
+  { href: "/portfolio", key: "portfolio" },
+  { href: "/diagnostic", key: "diagnostic" },
+  { href: "/blog", key: "blog" },
   { href: "/about", key: "about" },
 ] as const;
 

@@ -1,0 +1,106 @@
+---
+title: "The Infrastructure as Code Maturity Model"
+titleFr: "Le modèle de maturité Infrastructure as Code"
+titleDe: "Das Infrastructure-as-Code-Reifegradmodell"
+slug: "infrastructure-as-code-maturity"
+date: "2025-10-02"
+author: "151"
+tags: ["IaC", "Terraform", "Ansible", "DevOps", "Automation"]
+readingTime: 6
+excerpt: "Most organizations claim to do Infrastructure as Code. Few have achieved true declarative maturity. Here's a framework for measuring where you stand."
+excerptFr: "La plupart des organisations prétendent faire de l'Infrastructure as Code. Peu ont atteint une vraie maturité déclarative. Voici un cadre pour mesurer où vous en êtes."
+excerptDe: "Die meisten Organisationen behaupten, Infrastructure as Code zu betreiben. Wenige haben echte deklarative Reife erreicht. Ein Framework zur Standortbestimmung."
+---
+
+## Beyond the First Terraform Apply
+
+Infrastructure as Code (IaC) adoption follows a predictable maturity curve. Understanding where your organization sits on this curve is essential for planning the next phase of automation investment.
+
+## The Five Stages
+
+### Stage 1: Scripted
+
+**Characteristics**: Shell scripts, manual runbooks partially automated, no state management.
+
+```bash
+# Stage 1: The "works on my machine" era
+#!/bin/bash
+ssh admin@server-01 "apt update && apt install -y nginx"
+scp nginx.conf admin@server-01:/etc/nginx/
+ssh admin@server-01 "systemctl restart nginx"
+```
+
+**Risk**: No idempotency, no drift detection, tribal knowledge dependency.
+
+### Stage 2: Declarative
+
+**Characteristics**: Terraform or CloudFormation for provisioning, but manual workflows for applying changes.
+
+```hcl
+# Stage 2: Declarative but manual
+resource "vsphere_virtual_machine" "web" {
+  name             = "web-server-01"
+  resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
+  datastore_id     = data.vsphere_datastore.ds.id
+
+  num_cpus = 4
+  memory   = 8192
+
+  disk {
+    label            = "disk0"
+    size             = 100
+    thin_provisioned = true
+  }
+}
+```
+
+**Progress**: Infrastructure is version-controlled. **Gap**: State is shared via local files or S3, no automated pipelines.
+
+### Stage 3: Pipeline-Driven
+
+**Characteristics**: CI/CD pipelines execute IaC changes. Pull request reviews gate infrastructure modifications. State is centrally managed.
+
+Key indicators:
+- `terraform plan` runs automatically on PR creation
+- Approval gates before `apply`
+- State locking prevents concurrent modifications
+- Cost estimation integrated into PR reviews
+
+### Stage 4: Policy-as-Code
+
+**Characteristics**: Automated policy enforcement prevents non-compliant infrastructure from being provisioned.
+
+```rego
+# Stage 4: OPA policy preventing public storage
+deny[msg] {
+  input.resource_type == "azurerm_storage_account"
+  input.planned_values.public_network_access_enabled == true
+  msg := "Storage accounts must not allow public access"
+}
+```
+
+**Impact**: Compliance shifts left. Security violations are caught before deployment, not in post-deployment audits.
+
+### Stage 5: Self-Healing
+
+**Characteristics**: Drift detection and automatic remediation. Infrastructure continuously reconciles toward desired state.
+
+- Continuous drift detection (every 15 minutes)
+- Automated remediation for known drift patterns
+- Exception handling with escalation workflows
+- Full audit trail of detected and remediated drift
+
+## Measuring Your Maturity
+
+| Dimension | Stage 1 | Stage 2 | Stage 3 | Stage 4 | Stage 5 |
+|-----------|---------|---------|---------|---------|---------|
+| Provisioning | Manual | Declarative | Automated | Policy-gated | Self-healing |
+| State | None | Local files | Remote backend | Encrypted + locked | Continuous reconciliation |
+| Testing | None | Manual validation | Automated plan review | Policy testing | Chaos engineering |
+| Compliance | Post-deployment audit | Documentation | PR-based review | Automated enforcement | Continuous compliance |
+
+## The Path Forward
+
+Most enterprise environments we audit at 151 are between Stage 2 and Stage 3. The jump from Stage 3 to Stage 4 — introducing Policy-as-Code — is where the highest ROI lies for organizations facing regulatory pressure (especially DORA and NIS2 in the EU).
+
+Stage 5 is aspirational for most, but achievable for organizations that have invested deeply in Stages 3 and 4. The key insight: **each stage builds on the foundation of the previous one**. Attempting to jump directly to self-healing infrastructure without solid pipeline automation and policy enforcement creates fragile systems that mask problems rather than solving them.

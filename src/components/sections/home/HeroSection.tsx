@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { Logo151 } from "@/components/ui/Logo151";
 import { GradientOrb } from "@/components/ui/GradientOrb";
+import { NetworkTopology } from "@/components/ui/NetworkTopology";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 export function HeroSection() {
@@ -13,7 +14,10 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background orbs */}
+      {/* 3D Network topology (desktop only, respects reduced motion) */}
+      <NetworkTopology />
+
+      {/* Background orbs (visible on all devices as fallback) */}
       <GradientOrb
         color="magenta"
         size="600px"

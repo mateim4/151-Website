@@ -8,6 +8,9 @@
     "scope": "Expertise",
     "methodology": "M\u00e9thodologie",
     "about": "L\u2019Architecte",
+    "portfolio": "Portfolio",
+    "diagnostic": "Diagnostic DORA",
+    "blog": "Perspectives",
     "contact": "Contact"
   },
   "home": {
@@ -122,6 +125,91 @@
       "success": "Message envoy\u00e9 avec succ\u00e8s. Nous vous recontacterons.",
       "error": "Une erreur est survenue. Veuillez r\u00e9essayer."
     }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Transformations d'infrastructure r\u00e9elles livr\u00e9es avec un impact mesurable.",
+    "challenge": "D\u00e9fi",
+    "architecture": "Architecture",
+    "result": "R\u00e9sultat",
+    "techStack": "Technologies Utilis\u00e9es",
+    "cases": {
+      "datacenter": {
+        "title": "Consolidation Datacenter & Migration Hybride",
+        "industry": "Services Financiers",
+        "challenge": "Un administrateur de fonds luxembourgeois exploitait 3 datacenters vieillissants avec plus de 400 serveurs physiques, confronté à 2,1M€ de coûts de maintenance annuels, des fenêtres de reprise après sinistre de 72 heures et des échéances DORA imminentes.",
+        "architecture": "Conception d'une architecture hybride consolidant 2 sites en actif-actif. Mise en œuvre de clusters VMware vSAN HCI, backbone SD-WAN et Azure Arc pour la gestion hybride. Infrastructure as Code complète avec Terraform et Ansible.",
+        "result": "Réduction des coûts d'infrastructure de 58%. Fenêtre de DR compressée de 72 heures à 4 heures. Conformité DORA atteinte 6 mois avant l'échéance. 99,99% de disponibilité la première année.",
+        "metrics": { "cost": "-58%", "recovery": "4h DR", "uptime": "99,99%" }
+      },
+      "zerotrust": {
+        "title": "Transformation Réseau Zero-Trust",
+        "industry": "Assurance",
+        "challenge": "Un assureur pan-européen avec 12 bureaux s'appuyait sur une sécurité périmétrique VPN héritée. Plusieurs tests d'intrusion ont révélé des vulnérabilités de mouvement latéral.",
+        "architecture": "Mise en œuvre de microsegmentation avec Palo Alto Prisma, déploiement de proxys identitaires remplaçant le VPN, intégration CrowdStrike EDR avec Splunk SIEM. Playbooks de réponse automatisée en SOAR.",
+        "result": "Surface d'attaque réduite de 94%. Temps moyen de détection passé de 14 jours à 23 minutes. Zéro mouvement latéral réussi lors des pentests suivants. Conformité CSSF complète.",
+        "metrics": { "surface": "-94%", "detection": "23min", "compliance": "CSSF" }
+      },
+      "mlops": {
+        "title": "Plateforme MLOps Accélérée GPU",
+        "industry": "Fintech",
+        "challenge": "Une société de trading quantitatif nécessitait une infrastructure ML on-premises avec latence d'inférence sub-milliseconde. Les solutions cloud introduisaient une latence inacceptable et des préoccupations de souveraineté des données.",
+        "architecture": "Déploiement d'un cluster NVIDIA DGX avec fabric InfiniBand, Kubernetes avec opérateur GPU, MLflow pour le suivi des expériences et Triton Inference Server. Segment réseau isolé avec modules de sécurité matériels.",
+        "result": "Temps d'entraînement réduit de 12x. Latence d'inférence sous 0,3ms. Souveraineté totale des données sans dépendance cloud. La plateforme supporte 40+ travaux d'entraînement simultanés.",
+        "metrics": { "training": "12x plus rapide", "latency": "<0,3ms", "jobs": "40+" }
+      }
+    }
+  },
+  "diagnostic": {
+    "title": "Diagnostic de Conformité DORA",
+    "subtitle": "Évaluez la préparation de votre organisation au règlement DORA. Ce diagnostic couvre les cinq piliers de la conformité.",
+    "start": "Commencer l'Évaluation",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "complete": "Voir les Résultats",
+    "restart": "Recommencer",
+    "contactCta": "Discuter de vos Résultats avec 151",
+    "progress": "Question {current} sur {total}",
+    "pillars": {
+      "ict": "Gestion des Risques ICT",
+      "incident": "Signalement d'Incidents",
+      "resilience": "Tests de Résilience",
+      "thirdparty": "Risques Tiers",
+      "sharing": "Partage d'Information"
+    },
+    "levels": {
+      "critical": "Lacunes Critiques",
+      "developing": "En Développement",
+      "established": "Établi",
+      "advanced": "Avancé"
+    },
+    "results": {
+      "title": "Votre Score de Conformité DORA",
+      "overall": "Préparation Globale",
+      "breakdown": "Détail par Pilier",
+      "recommendation": "Prochaines Étapes Recommandées"
+    },
+    "questions": {
+      "ict1": { "q": "Votre organisation dispose-t-elle d'un cadre complet de gestion des risques ICT ?", "a": "Aucun cadre", "b": "Processus informels uniquement", "c": "Cadre documenté en place", "d": "Entièrement intégré et régulièrement audité" },
+      "ict2": { "q": "Comment les actifs et dépendances ICT sont-ils identifiés et cartographiés ?", "a": "Pas d'inventaire", "b": "Inventaire partiel, maintenu manuellement", "c": "Inventaire complet avec cartographie des dépendances", "d": "Découverte automatisée avec graphes de dépendances en temps réel" },
+      "incident1": { "q": "Disposez-vous d'un processus défini de classification et signalement des incidents ICT ?", "a": "Aucun processus formel", "b": "Signalement ad-hoc", "c": "Processus défini avec niveaux de classification", "d": "Détection, classification et signalement réglementaire automatisés" },
+      "incident2": { "q": "En combien de temps les incidents ICT majeurs peuvent-ils être signalés aux régulateurs ?", "a": "Aucune capacité de signalement", "b": "Sous plusieurs semaines", "c": "Sous 24 heures", "d": "Sous 4 heures avec notifications automatiques" },
+      "resilience1": { "q": "Votre organisation effectue-t-elle régulièrement des tests de résilience opérationnelle numérique ?", "a": "Aucun programme de test", "b": "Tests basiques annuels", "c": "Tests réguliers incluant des exercices basés sur des scénarios", "d": "Tests continus avec tests d'intrusion guidés par les menaces (TLPT)" },
+      "resilience2": { "q": "Comment les plans de continuité et de reprise après sinistre sont-ils validés ?", "a": "Plans existants mais non testés", "b": "Exercices théoriques annuels", "c": "Exercices DR réguliers avec résultats documentés", "d": "Tests de basculement automatisés avec RTO/RPO mesurés" },
+      "thirdparty1": { "q": "Comment les prestataires ICT tiers critiques sont-ils identifiés et surveillés ?", "a": "Aucune supervision formelle", "b": "SLA contractuels uniquement", "c": "Évaluations régulières et analyse du risque de concentration", "d": "Surveillance continue avec stratégies de sortie pour tous les prestataires critiques" },
+      "thirdparty2": { "q": "Les arrangements contractuels avec les prestataires ICT incluent-ils les clauses requises par DORA ?", "a": "Contrats standards uniquement", "b": "Quelques clauses de sécurité", "c": "Clauses alignées DORA dans les contrats critiques", "d": "Clauses DORA complètes avec droits d'audit chez tous les prestataires" },
+      "sharing1": { "q": "Votre organisation participe-t-elle au partage de renseignements sur les cybermenaces ?", "a": "Aucune participation", "b": "Échanges informels", "c": "Membre de groupes de partage sectoriels", "d": "Contributeur actif aux plateformes de renseignement avec indicateurs automatisés" },
+      "sharing2": { "q": "Comment les renseignements sur les menaces sont-ils intégrés dans vos opérations de sécurité ?", "a": "Non intégrés", "b": "Revue manuelle des renseignements partagés", "c": "Intégrés au SIEM avec règles de corrélation", "d": "Chasse aux menaces automatisée et mises à jour de défense proactives" }
+    }
+  },
+  "blog": {
+    "title": "Perspectives",
+    "subtitle": "Points de vue techniques sur l'architecture d'infrastructure, la conformité et la résilience opérationnelle.",
+    "readMore": "Lire l'Article",
+    "backToList": "Retour aux Perspectives",
+    "publishedOn": "Publié le {date}",
+    "minRead": "{minutes} min de lecture",
+    "tags": "Tags"
   },
   "footer": {
     "legal": "Mentions L\u00e9gales",

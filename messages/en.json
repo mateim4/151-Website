@@ -8,6 +8,9 @@
     "scope": "Expertise",
     "methodology": "Methodology",
     "about": "The Architect",
+    "portfolio": "Portfolio",
+    "diagnostic": "DORA Diagnostic",
+    "blog": "Insights",
     "contact": "Contact"
   },
   "home": {
@@ -122,6 +125,91 @@
       "success": "Message sent successfully. We\u2019ll be in touch.",
       "error": "Something went wrong. Please try again."
     }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Real-world infrastructure transformations delivered with measurable impact.",
+    "challenge": "Challenge",
+    "architecture": "Architecture",
+    "result": "Result",
+    "techStack": "Technology Stack",
+    "cases": {
+      "datacenter": {
+        "title": "Datacenter Consolidation & Hybrid Migration",
+        "industry": "Financial Services",
+        "challenge": "A Luxembourg-based fund administrator operated 3 aging datacenters with 400+ physical servers, facing €2.1M annual maintenance costs, 72-hour disaster recovery windows, and upcoming DORA compliance deadlines.",
+        "architecture": "Designed a hybrid architecture consolidating to 2 sites with active-active failover. Implemented VMware vSAN HCI clusters, SD-WAN backbone, and Azure Arc for hybrid management. Full Infrastructure as Code with Terraform and Ansible.",
+        "result": "58% infrastructure cost reduction. DR window compressed from 72 hours to 4 hours. DORA compliance achieved 6 months ahead of deadline. 99.99% uptime in first year.",
+        "metrics": { "cost": "-58%", "recovery": "4h DR", "uptime": "99.99%" }
+      },
+      "zerotrust": {
+        "title": "Zero-Trust Network Transformation",
+        "industry": "Insurance",
+        "challenge": "A pan-European insurer with 12 branch offices relied on legacy VPN-based perimeter security. Multiple penetration tests revealed lateral movement vulnerabilities, and the flat network topology posed catastrophic breach risk.",
+        "architecture": "Implemented microsegmentation with Palo Alto Prisma, deployed identity-aware proxies replacing VPN, integrated CrowdStrike EDR with Splunk SIEM. Built automated threat response playbooks in SOAR.",
+        "result": "Attack surface reduced by 94%. Mean time to detect threats dropped from 14 days to 23 minutes. Zero successful lateral movement in subsequent pentests. Full CSSF regulatory compliance.",
+        "metrics": { "surface": "-94%", "detection": "23min", "compliance": "CSSF" }
+      },
+      "mlops": {
+        "title": "GPU-Accelerated MLOps Platform",
+        "industry": "Fintech",
+        "challenge": "A quantitative trading firm needed on-premises ML training infrastructure with sub-millisecond inference latency. Cloud solutions introduced unacceptable latency and data sovereignty concerns for proprietary models.",
+        "architecture": "Deployed NVIDIA DGX cluster with InfiniBand fabric, Kubernetes with GPU operator for workload orchestration, MLflow for experiment tracking, and Triton Inference Server for production serving. Air-gapped network segment with hardware security modules.",
+        "result": "Model training time reduced by 12x. Inference latency under 0.3ms. Complete data sovereignty with zero cloud dependency. Platform supports 40+ concurrent training jobs.",
+        "metrics": { "training": "12x faster", "latency": "<0.3ms", "jobs": "40+" }
+      }
+    }
+  },
+  "diagnostic": {
+    "title": "DORA Readiness Diagnostic",
+    "subtitle": "Assess your organization's readiness for the Digital Operational Resilience Act. This diagnostic covers the five pillars of DORA compliance.",
+    "start": "Start Assessment",
+    "next": "Next",
+    "previous": "Previous",
+    "complete": "View Results",
+    "restart": "Retake Assessment",
+    "contactCta": "Discuss Your Results with 151",
+    "progress": "Question {current} of {total}",
+    "pillars": {
+      "ict": "ICT Risk Management",
+      "incident": "Incident Reporting",
+      "resilience": "Resilience Testing",
+      "thirdparty": "Third-Party Risk",
+      "sharing": "Information Sharing"
+    },
+    "levels": {
+      "critical": "Critical Gaps",
+      "developing": "Developing",
+      "established": "Established",
+      "advanced": "Advanced"
+    },
+    "results": {
+      "title": "Your DORA Readiness Score",
+      "overall": "Overall Readiness",
+      "breakdown": "Pillar Breakdown",
+      "recommendation": "Recommended Next Steps"
+    },
+    "questions": {
+      "ict1": { "q": "Does your organization maintain a comprehensive ICT risk management framework?", "a": "No framework exists", "b": "Informal processes only", "c": "Documented framework in place", "d": "Fully integrated and regularly audited" },
+      "ict2": { "q": "How are ICT assets and dependencies identified and mapped?", "a": "No asset inventory", "b": "Partial inventory, manually maintained", "c": "Complete inventory with dependency mapping", "d": "Automated discovery with real-time dependency graphs" },
+      "incident1": { "q": "Do you have a defined ICT incident classification and reporting process?", "a": "No formal process", "b": "Ad-hoc reporting", "c": "Defined process with classification tiers", "d": "Automated detection, classification, and regulatory reporting" },
+      "incident2": { "q": "How quickly can major ICT incidents be reported to regulators?", "a": "No reporting capability", "b": "Within weeks", "c": "Within 24 hours", "d": "Within 4 hours with automated notifications" },
+      "resilience1": { "q": "Does your organization conduct regular digital operational resilience testing?", "a": "No testing program", "b": "Annual basic testing", "c": "Regular testing including scenario-based exercises", "d": "Continuous testing with threat-led penetration testing (TLPT)" },
+      "resilience2": { "q": "How are business continuity and disaster recovery plans validated?", "a": "Plans exist but are untested", "b": "Annual tabletop exercises", "c": "Regular DR drills with documented results", "d": "Automated failover testing with measured RTO/RPO" },
+      "thirdparty1": { "q": "How are critical ICT third-party service providers identified and monitored?", "a": "No formal oversight", "b": "Contract-level SLAs only", "c": "Regular assessments and concentration risk analysis", "d": "Continuous monitoring with exit strategies for all critical providers" },
+      "thirdparty2": { "q": "Do contractual arrangements with ICT providers include DORA-required clauses?", "a": "Standard contracts only", "b": "Some security clauses", "c": "DORA-aligned clauses in critical contracts", "d": "Comprehensive DORA clauses with audit rights across all providers" },
+      "sharing1": { "q": "Does your organization participate in cyber threat intelligence sharing?", "a": "No participation", "b": "Informal information exchange", "c": "Member of industry sharing groups", "d": "Active contributor to threat intelligence platforms with automated indicators" },
+      "sharing2": { "q": "How are threat intelligence findings integrated into your security operations?", "a": "Not integrated", "b": "Manual review of shared intelligence", "c": "Integrated into SIEM with correlation rules", "d": "Automated threat hunting and proactive defense updates" }
+    }
+  },
+  "blog": {
+    "title": "Insights",
+    "subtitle": "Technical perspectives on infrastructure architecture, compliance, and operational resilience.",
+    "readMore": "Read Article",
+    "backToList": "Back to Insights",
+    "publishedOn": "Published on {date}",
+    "minRead": "{minutes} min read",
+    "tags": "Tags"
   },
   "footer": {
     "legal": "Legal Notice",
