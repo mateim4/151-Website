@@ -123,7 +123,12 @@
       "message": "Message",
       "send": "Envoyer",
       "success": "Message envoy\u00e9 avec succ\u00e8s. Nous vous recontacterons.",
-      "error": "Une erreur est survenue. Veuillez r\u00e9essayer."
+      "error": "Une erreur est survenue. Veuillez r\u00e9essayer.",
+      "validation": {
+        "name": "Veuillez entrer votre nom (au moins 2 caract\u00e8res).",
+        "email": "Veuillez entrer une adresse email valide.",
+        "message": "Veuillez entrer un message (au moins 10 caract\u00e8res)."
+      }
     }
   },
   "portfolio": {
@@ -132,6 +137,7 @@
     "challenge": "D\u00e9fi",
     "architecture": "Architecture",
     "result": "R\u00e9sultat",
+    "collapse": "R\u00e9duire",
     "techStack": "Technologies Utilis\u00e9es",
     "cases": {
       "datacenter": {
@@ -215,7 +221,9 @@
     "legal": "Mentions L\u00e9gales",
     "privacy": "Politique de Confidentialit\u00e9",
     "copyright": "\u00a9 {year} 151. Tous droits r\u00e9serv\u00e9s.",
-    "tagline": "Architecturer des Fondations Num\u00e9riques R\u00e9silientes"
+    "tagline": "Architecturer des Fondations Num\u00e9riques R\u00e9silientes",
+    "navigation": "Navigation",
+    "connect": "Contact"
   },
   "common": {
     "learnMore": "En Savoir Plus",

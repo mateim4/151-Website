@@ -29,6 +29,11 @@ export default function RootLayout({
       className={`${poppins.variable} ${inter.variable} ${ibmPlexMono.variable}`}
     >
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("151-theme");if(!t||t==="system"){t=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t);document.documentElement.classList.add(t)}catch(e){}})()`,
+          }}
+        />
         <JsonLd />
         {children}
       </body>

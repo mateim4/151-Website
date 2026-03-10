@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { GradientOrb } from "@/components/ui/GradientOrb";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 
 export function CTASection() {
   const t = useTranslations("home.cta");
@@ -25,12 +26,11 @@ export function CTASection() {
             <p className="mt-4 text-lg text-[var(--151-text-secondary)]">
               {t("subtitle")}
             </p>
-            <Link
-              href="/about"
-              className="mt-8 inline-flex items-center justify-center px-8 py-3.5 rounded-xl text-sm font-semibold text-white bg-[var(--151-magenta-500)] hover:bg-[var(--151-magenta-400)] transition-all duration-200 shadow-[0_0_20px_var(--151-glow-magenta)] hover:shadow-[0_0_30px_var(--151-glow-magenta)] hover:-translate-y-0.5"
-            >
-              {t("button")}
-            </Link>
+            <MagneticButton className="mt-8">
+              <Link href="/about" className="btn-glass-primary">
+                {t("button")}
+              </Link>
+            </MagneticButton>
           </div>
         </RevealOnScroll>
       </div>

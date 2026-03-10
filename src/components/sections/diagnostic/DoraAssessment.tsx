@@ -39,7 +39,7 @@ function getLevel(score: number): string {
 const levelColors: Record<string, string> = {
   critical: "text-red-400 bg-red-500/10",
   developing: "text-amber-400 bg-amber-500/10",
-  established: "text-[var(--151-teal-400)] bg-[var(--151-teal-500)]/10",
+  established: "text-[var(--151-violet-500)] bg-[var(--151-violet-500)]/10",
   advanced: "text-emerald-400 bg-emerald-500/10",
 };
 
@@ -90,10 +90,7 @@ export function DoraAssessment() {
         <p className="max-w-xl mx-auto text-[var(--151-text-secondary)] leading-relaxed mb-8">
           {t("subtitle")}
         </p>
-        <button
-          onClick={() => setStage("questions")}
-          className="inline-flex items-center px-8 py-3.5 rounded-xl text-sm font-semibold text-white bg-[var(--151-magenta-500)] hover:bg-[var(--151-magenta-400)] transition-all duration-200 shadow-[0_0_20px_var(--151-glow-magenta)] hover:shadow-[0_0_30px_var(--151-glow-magenta)]"
-        >
+        <button onClick={() => setStage("questions")} className="btn-glass-primary">
           {t("start")}
         </button>
       </div>
@@ -165,7 +162,7 @@ export function DoraAssessment() {
                     initial={{ width: 0 }}
                     animate={{ width: `${pct}%` }}
                     transition={{ duration: 0.8, delay: 0.1 }}
-                    className="h-full rounded-full bg-gradient-to-r from-[var(--151-magenta-500)] to-[var(--151-teal-500)]"
+                    className="h-full rounded-full bg-gradient-to-r from-[var(--151-magenta-600)] to-[var(--151-magenta-400)]"
                   />
                 </div>
               </div>
@@ -175,10 +172,7 @@ export function DoraAssessment() {
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/about"
-            className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl text-sm font-semibold text-white bg-[var(--151-magenta-500)] hover:bg-[var(--151-magenta-400)] transition-all duration-200 shadow-[0_0_20px_var(--151-glow-magenta)]"
-          >
+          <Link href="/about" className="btn-glass-primary">
             {t("contactCta")}
           </Link>
           <button
@@ -187,7 +181,7 @@ export function DoraAssessment() {
               setCurrentQ(0);
               setStage("intro");
             }}
-            className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl text-sm font-semibold text-[var(--151-text-primary)] border border-[var(--151-border-medium)] hover:border-[var(--151-magenta-500)] transition-colors"
+            className="btn-glass-secondary"
           >
             {t("restart")}
           </button>
@@ -214,7 +208,7 @@ export function DoraAssessment() {
         </div>
         <div className="h-1.5 rounded-full bg-[var(--151-border-subtle)] overflow-hidden">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-[var(--151-magenta-500)] to-[var(--151-teal-500)] transition-all duration-300"
+            className="h-full rounded-full bg-gradient-to-r from-[var(--151-magenta-600)] to-[var(--151-magenta-400)] transition-[width] duration-300"
             style={{ width: `${((currentQ + 1) / questions.length) * 100}%` }}
           />
         </div>
@@ -239,7 +233,7 @@ export function DoraAssessment() {
                 key={key}
                 onClick={() => selectAnswer(key)}
                 className={cn(
-                  "w-full text-left px-4 py-3.5 rounded-xl border transition-all duration-200 text-sm",
+                  "w-full text-left px-4 py-3.5 rounded-xl border transition-[background-color,box-shadow,transform] duration-200 text-sm",
                   currentAnswer === key
                     ? "border-[var(--151-magenta-500)] bg-[var(--151-magenta-500)]/10 text-[var(--151-text-primary)]"
                     : "border-[var(--151-border-subtle)] text-[var(--151-text-secondary)] hover:border-[var(--151-border-medium)] hover:text-[var(--151-text-primary)]"
@@ -279,12 +273,7 @@ export function DoraAssessment() {
           <button
             onClick={() => setCurrentQ(currentQ + 1)}
             disabled={!currentAnswer}
-            className={cn(
-              "px-6 py-2 rounded-lg text-sm font-semibold transition-all",
-              currentAnswer
-                ? "text-white bg-[var(--151-magenta-500)] hover:bg-[var(--151-magenta-400)]"
-                : "text-[var(--151-text-muted)] bg-[var(--151-border-subtle)] cursor-not-allowed"
-            )}
+            className="btn-glass-primary btn-glass-sm"
           >
             {t("next")}
           </button>
@@ -292,12 +281,7 @@ export function DoraAssessment() {
           <button
             onClick={() => allAnswered && setStage("results")}
             disabled={!allAnswered}
-            className={cn(
-              "px-6 py-2 rounded-lg text-sm font-semibold transition-all",
-              allAnswered
-                ? "text-white bg-[var(--151-magenta-500)] hover:bg-[var(--151-magenta-400)] shadow-[0_0_20px_var(--151-glow-magenta)]"
-                : "text-[var(--151-text-muted)] bg-[var(--151-border-subtle)] cursor-not-allowed"
-            )}
+            className="btn-glass-primary btn-glass-sm"
           >
             {t("complete")}
           </button>

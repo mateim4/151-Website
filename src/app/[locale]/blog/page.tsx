@@ -5,6 +5,8 @@ import { getAllPosts, getLocalizedTitle, getLocalizedExcerpt } from "@/lib/blog"
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
+import { Tag } from "@/components/ui/Tag";
+import { PageHeader } from "@/components/ui/PageHeader";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -23,31 +25,21 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="pt-24">
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <RevealOnScroll>
-            <h1 className="font-[var(--font-display)] text-4xl sm:text-5xl font-bold text-[var(--151-text-primary)] tracking-tight">
-              {t("title")}
-            </h1>
-          </RevealOnScroll>
-          <RevealOnScroll delay={0.1}>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[var(--151-text-secondary)]">
-              {t("subtitle")}
-            </p>
-          </RevealOnScroll>
-        </div>
-      </section>
+    <>
+      <PageHeader
+        title={t("title")}
+        subtitle={t("subtitle")}
+      />
 
       <section className="pb-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-8">
             {posts.map((post, i) => (
-              <RevealOnScroll key={post.slug} delay={i * 0.1}>
+              <RevealOnScroll key={post.slug} delay={i * 0.1} direction={i % 2 === 0 ? "left" : "right"}>
                 <article
                   className={cn(
                     "group rounded-2xl border border-[var(--151-border-subtle)] p-6 sm:p-8",
-                    "bg-[var(--151-bg-elevated)] transition-all duration-300",
+                    "bg-[var(--151-bg-elevated)] transition-[border-color,box-shadow,transform] duration-300",
                     "hover:border-[var(--151-border-medium)]"
                   )}
                 >
@@ -77,12 +69,7 @@ export default function BlogPage() {
 
                       <div className="mt-4 flex flex-wrap gap-2">
                         {post.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-2 py-0.5 rounded-md text-xs font-medium bg-[var(--151-border-subtle)] text-[var(--151-text-muted)]"
-                          >
-                            {tag}
-                          </span>
+                          <Tag key={tag}>{tag}</Tag>
                         ))}
                       </div>
                     </div>
@@ -103,6 +90,6 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

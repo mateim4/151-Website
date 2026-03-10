@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { useLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { buildMetadata } from "@/lib/metadata";
 import {
@@ -11,6 +10,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { MDXContent } from "@/components/sections/blog/MDXContent";
+import { Tag } from "@/components/ui/Tag";
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -39,6 +39,7 @@ export default async function BlogPostPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: "blog" });
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
@@ -55,7 +56,7 @@ export default async function BlogPostPage({
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <polyline points="15 18 9 12 15 6" />
               </svg>
-              Back
+              {t("backToList")}
             </Link>
           </RevealOnScroll>
 
@@ -71,7 +72,7 @@ export default async function BlogPostPage({
                   })}
                 </time>
                 <span>&middot;</span>
-                <span>{post.readingTime} min read</span>
+                <span>{t("minRead", { minutes: post.readingTime })}</span>
               </div>
 
               <h1 className="font-[var(--font-display)] text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--151-text-primary)] tracking-tight leading-tight">
@@ -80,12 +81,7 @@ export default async function BlogPostPage({
 
               <div className="mt-6 flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 py-1 rounded-md text-xs font-medium bg-[var(--151-magenta-500)]/10 text-[var(--151-magenta-500)]"
-                  >
-                    {tag}
-                  </span>
+                  <Tag key={tag}>{tag}</Tag>
                 ))}
               </div>
             </header>

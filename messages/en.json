@@ -123,7 +123,12 @@
       "message": "Message",
       "send": "Send Message",
       "success": "Message sent successfully. We\u2019ll be in touch.",
-      "error": "Something went wrong. Please try again."
+      "error": "Something went wrong. Please try again.",
+      "validation": {
+        "name": "Please enter your name (at least 2 characters).",
+        "email": "Please enter a valid email address.",
+        "message": "Please enter a message (at least 10 characters)."
+      }
     }
   },
   "portfolio": {
@@ -132,6 +137,7 @@
     "challenge": "Challenge",
     "architecture": "Architecture",
     "result": "Result",
+    "collapse": "Collapse",
     "techStack": "Technology Stack",
     "cases": {
       "datacenter": {
@@ -215,7 +221,9 @@
     "legal": "Legal Notice",
     "privacy": "Privacy Policy",
     "copyright": "\u00a9 {year} 151. All rights reserved.",
-    "tagline": "Architecting Resilient Digital Foundations"
+    "tagline": "Architecting Resilient Digital Foundations",
+    "navigation": "Navigation",
+    "connect": "Connect"
   },
   "common": {
     "learnMore": "Learn More",

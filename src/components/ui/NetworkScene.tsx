@@ -3,6 +3,7 @@
 import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { useMousePosition } from "@/hooks/useMousePosition";
 
 const NODE_COUNT = 18;
 const EDGE_PAIRS: [number, number][] = [
@@ -26,13 +27,23 @@ function generatePositions(count: number): Float32Array {
   return positions;
 }
 
-function Nodes({ positions }: { positions: Float32Array }) {
+function Nodes({ positions, mouse }: { positions: Float32Array; mouse: { x: number; y: number } }) {
   const ref = useRef<THREE.Points>(null);
+  const glowRef = useRef<THREE.Points>(null);
 
   useFrame(({ clock }) => {
     if (!ref.current) return;
-    ref.current.rotation.y = clock.getElapsedTime() * 0.04;
-    ref.current.rotation.x = Math.sin(clock.getElapsedTime() * 0.02) * 0.1;
+    const time = clock.getElapsedTime();
+    const rotY = time * 0.04 + mouse.x * 0.3;
+    const rotX = Math.sin(time * 0.02) * 0.1 + mouse.y * 0.15;
+
+    ref.current.rotation.y = rotY;
+    ref.current.rotation.x = rotX;
+
+    if (glowRef.current) {
+      glowRef.current.rotation.y = rotY;
+      glowRef.current.rotation.x = rotX;
+    }
   });
 
   const geometry = useMemo(() => {
@@ -42,32 +53,46 @@ function Nodes({ positions }: { positions: Float32Array }) {
   }, [positions]);
 
   return (
-    <points ref={ref} geometry={geometry}>
-      <pointsMaterial
-        color="#FF40C2"
-        size={0.08}
-        sizeAttenuation
-        transparent
-        opacity={0.8}
-      />
-    </points>
+    <>
+      {/* Glow layer */}
+      <points ref={glowRef} geometry={geometry}>
+        <pointsMaterial
+          color="#FF40C2"
+          size={0.4}
+          sizeAttenuation
+          transparent
+          opacity={0.12}
+        />
+      </points>
+      {/* Core nodes */}
+      <points ref={ref} geometry={geometry}>
+        <pointsMaterial
+          color="#FF40C2"
+          size={0.18}
+          sizeAttenuation
+          transparent
+          opacity={0.8}
+        />
+      </points>
+    </>
   );
 }
 
-function Edges({ positions }: { positions: Float32Array }) {
+function Edges({ positions, mouse }: { positions: Float32Array; mouse: { x: number; y: number } }) {
   const ref = useRef<THREE.Group>(null);
 
   useFrame(({ clock }) => {
     if (!ref.current) return;
-    ref.current.rotation.y = clock.getElapsedTime() * 0.04;
-    ref.current.rotation.x = Math.sin(clock.getElapsedTime() * 0.02) * 0.1;
+    const time = clock.getElapsedTime();
+    ref.current.rotation.y = time * 0.04 + mouse.x * 0.3;
+    ref.current.rotation.x = Math.sin(time * 0.02) * 0.1 + mouse.y * 0.15;
   });
 
   const lines = useMemo(() => {
     const material = new THREE.LineBasicMaterial({
-      color: "#00D4AA",
+      color: "#8B5CF6",
       transparent: true,
-      opacity: 0.15,
+      opacity: 0.3,
     });
 
     return EDGE_PAIRS.map(([a, b]) => {
@@ -91,6 +116,7 @@ function Edges({ positions }: { positions: Float32Array }) {
 
 export default function NetworkScene() {
   const positions = useMemo(() => generatePositions(NODE_COUNT), []);
+  const mouse = useMousePosition();
 
   return (
     <Canvas
@@ -99,8 +125,8 @@ export default function NetworkScene() {
       gl={{ antialias: true, alpha: true }}
     >
       <ambientLight intensity={0.5} />
-      <Nodes positions={positions} />
-      <Edges positions={positions} />
+      <Nodes positions={positions} mouse={mouse} />
+      <Edges positions={positions} mouse={mouse} />
     </Canvas>
   );
 }

@@ -23,17 +23,6 @@
   --color-magenta-800: var(--151-magenta-800);
   --color-magenta-900: var(--151-magenta-900);
 
-  --color-teal-50: var(--151-teal-50);
-  --color-teal-100: var(--151-teal-100);
-  --color-teal-200: var(--151-teal-200);
-  --color-teal-300: var(--151-teal-300);
-  --color-teal-400: var(--151-teal-400);
-  --color-teal-500: var(--151-teal-500);
-  --color-teal-600: var(--151-teal-600);
-  --color-teal-700: var(--151-teal-700);
-  --color-teal-800: var(--151-teal-800);
-  --color-teal-900: var(--151-teal-900);
-
   /* --- Semantic Colors --- */
   --color-bg-primary: var(--151-bg-primary);
   --color-bg-surface: var(--151-bg-surface);
@@ -46,6 +35,10 @@
 
   --color-border-subtle: var(--151-border-subtle);
   --color-border-medium: var(--151-border-medium);
+
+  --color-violet-400: var(--151-violet-400);
+  --color-violet-500: var(--151-violet-500);
+  --color-violet-600: var(--151-violet-600);
 
   /* --- Animation --- */
   --animate-fade-in: fade-in 0.6s ease-out;

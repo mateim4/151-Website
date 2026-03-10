@@ -56,11 +56,12 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.33, 0, 0.67, 1] as const },
+    scale: 1,
+    transition: { type: "spring" as const, stiffness: 100, damping: 15 },
   },
 };
 
@@ -90,8 +91,9 @@ export function CompetencyGrid() {
               className={cn(
                 "group relative p-6 sm:p-8 rounded-2xl",
                 "bg-[var(--151-bg-card)] border border-[var(--151-border-subtle)]",
-                "hover:border-[var(--151-magenta-500)]/30 transition-all duration-300",
-                "hover:shadow-[0_0_30px_var(--151-glow-magenta)]"
+                "hover:border-[var(--151-magenta-500)]/30 transition-[border-color,box-shadow,transform] duration-300",
+                "hover:shadow-[0_0_30px_var(--151-glow-magenta)]",
+                "hover:-translate-y-1 hover:scale-[1.01]"
               )}
             >
               <div className="flex items-start gap-4">

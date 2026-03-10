@@ -123,7 +123,12 @@
       "message": "Nachricht",
       "send": "Nachricht Senden",
       "success": "Nachricht erfolgreich gesendet. Wir melden uns bei Ihnen.",
-      "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+      "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+      "validation": {
+        "name": "Bitte geben Sie Ihren Namen ein (mindestens 2 Zeichen).",
+        "email": "Bitte geben Sie eine g\u00fcltige E-Mail-Adresse ein.",
+        "message": "Bitte geben Sie eine Nachricht ein (mindestens 10 Zeichen)."
+      }
     }
   },
   "portfolio": {
@@ -132,6 +137,7 @@
     "challenge": "Herausforderung",
     "architecture": "Architektur",
     "result": "Ergebnis",
+    "collapse": "Einklappen",
     "techStack": "Technologie-Stack",
     "cases": {
       "datacenter": {
@@ -215,7 +221,9 @@
     "legal": "Impressum",
     "privacy": "Datenschutzerkl\u00e4rung",
     "copyright": "\u00a9 {year} 151. Alle Rechte vorbehalten.",
-    "tagline": "Resiliente Digitale Grundlagen Gestalten"
+    "tagline": "Resiliente Digitale Grundlagen Gestalten",
+    "navigation": "Navigation",
+    "connect": "Verbinden"
   },
   "common": {
     "learnMore": "Mehr Erfahren",

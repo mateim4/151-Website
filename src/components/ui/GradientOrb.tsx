@@ -3,7 +3,7 @@
 import { cn } from "@/lib/cn";
 
 interface GradientOrbProps {
-  color: "magenta" | "teal";
+  color: "magenta" | "magenta-light";
   size?: string;
   className?: string;
 }

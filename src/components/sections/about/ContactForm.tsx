@@ -16,6 +16,34 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
+function Spinner() {
+  return (
+    <svg
+      className="animate-spin h-4 w-4 inline-block"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        className="opacity-25"
+      />
+      <path
+        d="M12 2a10 10 0 0 1 10 10"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        className="opacity-75"
+      />
+    </svg>
+  );
+}
+
 export function ContactForm() {
   const t = useTranslations("about.contact");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -50,11 +78,11 @@ export function ContactForm() {
     "bg-[var(--151-bg-elevated)] border border-[var(--151-border-subtle)]",
     "text-[var(--151-text-primary)] placeholder:text-[var(--151-text-muted)]",
     "focus:outline-none focus:border-[var(--151-magenta-500)] focus:ring-2 focus:ring-[var(--151-magenta-500)]/25",
-    "transition-all duration-200"
+    "transition-[border-color,box-shadow] duration-200"
   );
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-[var(--151-text-secondary)] mb-1.5">
           {t("name")}
@@ -62,9 +90,16 @@ export function ContactForm() {
         <input
           id="name"
           type="text"
+          aria-describedby={errors.name ? "name-error" : undefined}
+          aria-invalid={errors.name ? "true" : undefined}
           {...register("name")}
           className={cn(inputClasses, errors.name && "border-red-500")}
         />
+        {errors.name && (
+          <p id="name-error" role="alert" className="mt-1 text-xs text-red-400">
+            {t("validation.name")}
+          </p>
+        )}
       </div>
 
       <div>
@@ -74,9 +109,16 @@ export function ContactForm() {
         <input
           id="email"
           type="email"
+          aria-describedby={errors.email ? "email-error" : undefined}
+          aria-invalid={errors.email ? "true" : undefined}
           {...register("email")}
           className={cn(inputClasses, errors.email && "border-red-500")}
         />
+        {errors.email && (
+          <p id="email-error" role="alert" className="mt-1 text-xs text-red-400">
+            {t("validation.email")}
+          </p>
+        )}
       </div>
 
       <div>
@@ -98,29 +140,38 @@ export function ContactForm() {
         <textarea
           id="message"
           rows={5}
+          aria-describedby={errors.message ? "message-error" : undefined}
+          aria-invalid={errors.message ? "true" : undefined}
           {...register("message")}
           className={cn(inputClasses, "resize-none", errors.message && "border-red-500")}
         />
+        {errors.message && (
+          <p id="message-error" role="alert" className="mt-1 text-xs text-red-400">
+            {t("validation.message")}
+          </p>
+        )}
       </div>
 
       <button
         type="submit"
         disabled={status === "sending"}
-        className={cn(
-          "w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-200",
-          "text-white bg-[var(--151-magenta-500)] hover:bg-[var(--151-magenta-400)]",
-          "shadow-[0_0_20px_var(--151-glow-magenta)] hover:shadow-[0_0_30px_var(--151-glow-magenta)]",
-          "disabled:opacity-50 disabled:cursor-not-allowed"
-        )}
+        className="btn-glass-primary w-full"
       >
-        {status === "sending" ? "..." : t("send")}
+        {status === "sending" ? (
+          <span className="inline-flex items-center gap-2">
+            <Spinner />
+            {t("send")}
+          </span>
+        ) : (
+          t("send")
+        )}
       </button>
 
       {status === "success" && (
-        <p className="text-sm text-[var(--151-teal-500)] text-center">{t("success")}</p>
+        <p className="text-sm text-emerald-500 text-center" role="status">{t("success")}</p>
       )}
       {status === "error" && (
-        <p className="text-sm text-red-500 text-center">{t("error")}</p>
+        <p className="text-sm text-red-500 text-center" role="alert">{t("error")}</p>
       )}
     </form>
   );

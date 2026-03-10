@@ -9,24 +9,20 @@ import { cn } from "@/lib/cn";
 interface CaseStudy {
   key: string;
   techStack: string[];
-  accentColor: "magenta" | "teal";
 }
 
 const caseStudies: CaseStudy[] = [
   {
     key: "datacenter",
     techStack: ["VMware vSAN", "Terraform", "Ansible", "Azure Arc", "SD-WAN"],
-    accentColor: "magenta",
   },
   {
     key: "zerotrust",
     techStack: ["Palo Alto Prisma", "CrowdStrike", "Splunk SIEM", "SOAR"],
-    accentColor: "teal",
   },
   {
     key: "mlops",
     techStack: ["NVIDIA DGX", "Kubernetes", "MLflow", "Triton", "InfiniBand"],
-    accentColor: "magenta",
   },
 ];
 
@@ -47,23 +43,15 @@ export function CaseStudyCards() {
 function CaseCard({ study }: { study: CaseStudy }) {
   const t = useTranslations("portfolio");
   const [expanded, setExpanded] = useState(false);
-  const isMagenta = study.accentColor === "magenta";
 
-  const accentBorder = isMagenta
-    ? "border-[var(--151-magenta-500)]"
-    : "border-[var(--151-teal-500)]";
-  const accentText = isMagenta
-    ? "text-[var(--151-magenta-500)]"
-    : "text-[var(--151-teal-500)]";
-  const accentBg = isMagenta
-    ? "bg-[var(--151-magenta-500)]/10"
-    : "bg-[var(--151-teal-500)]/10";
+  const accentText = "text-[var(--151-magenta-500)]";
+  const accentBg = "bg-[var(--151-magenta-500)]/10";
 
   return (
     <div
       className={cn(
         "rounded-2xl border border-[var(--151-border-subtle)] overflow-hidden",
-        "bg-[var(--151-bg-elevated)] transition-all duration-300",
+        "bg-[var(--151-bg-elevated)] transition-[border-color,box-shadow,transform] duration-300",
         "hover:border-[var(--151-border-medium)]"
       )}
     >
@@ -110,7 +98,7 @@ function CaseCard({ study }: { study: CaseStudy }) {
           )}
           aria-expanded={expanded}
         >
-          {expanded ? "Collapse" : t("challenge")}
+          {expanded ? t("collapse") : t("challenge")}
           <svg
             width="16"
             height="16"

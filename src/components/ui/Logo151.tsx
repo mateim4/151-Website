@@ -8,23 +8,19 @@ interface Logo151Props {
 }
 
 const sizeClasses = {
-  sm: "text-xl font-bold",
-  md: "text-2xl font-bold",
-  lg: "text-4xl font-extrabold",
-  hero: "text-7xl sm:text-8xl md:text-9xl font-extrabold tracking-tighter",
+  sm: "h-12",
+  md: "h-10",
+  lg: "h-14",
+  hero: "h-20 sm:h-28 md:h-36 lg:h-48",
 } as const;
 
 export function Logo151({ size = "md", className }: Logo151Props) {
   return (
-    <span
-      className={cn(
-        "font-[var(--font-display)] text-151-gradient select-none",
-        sizeClasses[size],
-        className
-      )}
-      aria-label="151"
-    >
-      151
-    </span>
+    <img
+      src="/logo/151-text.svg"
+      alt="151"
+      className={cn("block mx-auto w-auto select-none", sizeClasses[size], className)}
+      draggable={false}
+    />
   );
 }

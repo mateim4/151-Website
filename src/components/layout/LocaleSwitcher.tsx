@@ -4,6 +4,7 @@ import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { locales, localeNames, type Locale } from "@/i18n/config";
 import { useState, useRef, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/cn";
 
 export function LocaleSwitcher({ className }: { className?: string }) {
@@ -56,34 +57,40 @@ export function LocaleSwitcher({ className }: { className?: string }) {
         </svg>
       </button>
 
-      {open && (
-        <div
-          role="listbox"
-          aria-label="Select language"
-          className={cn(
-            "absolute right-0 top-full mt-1 py-1 min-w-[120px] rounded-lg",
-            "bg-[var(--151-bg-elevated)] border border-[var(--151-border-subtle)]",
-            "shadow-lg z-50"
-          )}
-        >
-          {locales.map((l) => (
-            <button
-              key={l}
-              role="option"
-              aria-selected={l === locale}
-              onClick={() => switchLocale(l)}
-              className={cn(
-                "w-full px-3 py-2 text-left text-sm transition-colors",
-                l === locale
-                  ? "text-[var(--151-magenta-500)] font-medium"
-                  : "text-[var(--151-text-secondary)] hover:text-[var(--151-text-primary)] hover:bg-[var(--151-border-subtle)]"
-              )}
-            >
-              {localeNames[l]}
-            </button>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -4, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -4, scale: 0.95 }}
+            transition={{ duration: 0.15 }}
+            role="listbox"
+            aria-label="Select language"
+            className={cn(
+              "absolute right-0 top-full mt-1 py-1 min-w-[120px] rounded-lg",
+              "bg-[var(--151-bg-elevated)] border border-[var(--151-border-subtle)]",
+              "shadow-lg z-50"
+            )}
+          >
+            {locales.map((l) => (
+              <button
+                key={l}
+                role="option"
+                aria-selected={l === locale}
+                onClick={() => switchLocale(l)}
+                className={cn(
+                  "w-full px-3 py-2 text-left text-sm transition-colors",
+                  l === locale
+                    ? "text-[var(--151-magenta-500)] font-medium"
+                    : "text-[var(--151-text-secondary)] hover:text-[var(--151-text-primary)] hover:bg-[var(--151-border-subtle)]"
+                )}
+              >
+                {localeNames[l]}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

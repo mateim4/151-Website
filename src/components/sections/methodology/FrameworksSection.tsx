@@ -24,14 +24,17 @@ export function FrameworksSection() {
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           {frameworks.map(({ key, label }, i) => (
-            <RevealOnScroll key={key} delay={i * 0.1}>
+            <RevealOnScroll key={key} delay={i * 0.1} direction={i === 0 ? "left" : i === 2 ? "right" : "up"}>
               <div
                 className={cn(
                   "p-6 rounded-2xl h-full",
-                  "bg-[var(--151-bg-card)] border border-[var(--151-border-subtle)]"
+                  "bg-[var(--151-bg-card)] border border-[var(--151-border-subtle)]",
+                  "transition-[border-color,box-shadow,transform] duration-300",
+                  "hover:border-[var(--151-magenta-500)]/25 hover:shadow-[0_0_20px_var(--151-glow-magenta)]",
+                  "hover:-translate-y-1"
                 )}
               >
-                <span className="text-sm font-bold font-[var(--font-mono)] text-[var(--151-magenta-500)] uppercase tracking-wider">
+                <span className="text-sm font-bold font-[var(--font-mono)] text-[var(--151-violet-500)] uppercase tracking-wider">
                   {label}
                 </span>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--151-text-secondary)]">
