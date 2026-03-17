@@ -3,12 +3,16 @@
 import { useTranslations } from "next-intl";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { GradientOrb } from "@/components/ui/GradientOrb";
+import { OfficeTopology } from "@/components/ui/OfficeTopology";
 
 export function ValueProp() {
   const t = useTranslations("home.standard");
 
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden">
+      {/* 3D Office topology (desktop only, respects reduced motion) */}
+      <OfficeTopology />
+
       <GradientOrb
         color="magenta"
         size="300px"
