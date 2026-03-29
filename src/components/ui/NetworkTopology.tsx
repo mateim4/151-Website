@@ -44,8 +44,8 @@ export function NetworkTopology() {
     // B1: Scroll-linked opacity fade (after fade-in completes)
     function onScroll() {
       if (!fadeInDone.current || !el) return;
-      const frac = Math.min(window.scrollY / window.innerHeight, 1);
-      // Quadratic curve: scene stays visible longer during dolly-down, then fades quickly
+      // Faster fade-out: fully gone by 70vh scroll (was 100vh)
+      const frac = Math.min(window.scrollY / (window.innerHeight * 0.7), 1);
       el.style.opacity = String(Math.max(1 - frac * frac, 0));
     }
     window.addEventListener("scroll", onScroll, { passive: true });

@@ -46,6 +46,7 @@
 
   --151-glass-bg: rgba(19, 21, 21, 0.75);
   --151-glass-bg-light: rgba(19, 21, 21, 0.20);
+  --151-glass-bg-medium: rgba(19, 21, 21, 0.30);
   --151-glass-bg-heavy: rgba(19, 21, 21, 0.92);
   --151-glass-border: rgba(255, 255, 255, 0.06);
   --151-glass-nav: rgba(19, 21, 21, 0.90);
@@ -72,6 +73,7 @@
 
   --151-glass-bg: rgba(250, 251, 254, 0.75);
   --151-glass-bg-light: rgba(250, 251, 254, 0.20);
+  --151-glass-bg-medium: rgba(250, 251, 254, 0.30);
   --151-glass-bg-heavy: rgba(250, 251, 254, 0.92);
   --151-glass-border: rgba(0, 0, 0, 0.06);
   --151-glass-nav: rgba(250, 251, 254, 0.90);
@@ -159,13 +161,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.875rem 2rem;           /* py-3.5 px-8 */
-  border-radius: 0.5rem;            /* rounded-lg */
+  padding: 0.75rem 1.75rem;          /* balanced for squircle shape */
+  border-radius: 1rem;              /* Apple squircle proportion */
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
+  text-align: center;
 }
 
 /* Small variant — quiz nav, compact CTAs */

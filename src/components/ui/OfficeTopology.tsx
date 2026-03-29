@@ -37,21 +37,29 @@ export function OfficeTopology() {
       const vh = window.innerHeight;
       const scrollY = window.scrollY;
 
-      // Start fading in slightly before the full viewport height is scrolled
-      const startFade = vh * 0.5;
-      const endFade = vh * 1.0;
+      // Phase 1: Fade IN — glued to datacenter floor exit
+      const fadeInStart = vh * 0.2;
+      const fadeInEnd = vh * 0.45;
 
-      if (scrollY < startFade) {
-          el.style.opacity = "0";
-      } else if (scrollY > endFade) {
-          el.style.opacity = "1";
+      // Phase 2: Fade OUT — when scrolling past the office section
+      const fadeOutStart = vh * 1.0;
+      const fadeOutEnd = vh * 1.5;
+
+      let opacity: number;
+      if (scrollY < fadeInStart) {
+        opacity = 0;
+      } else if (scrollY < fadeInEnd) {
+        const frac = (scrollY - fadeInStart) / (fadeInEnd - fadeInStart);
+        opacity = frac < 0.5 ? 2 * frac * frac : 1 - Math.pow(-2 * frac + 2, 2) / 2;
+      } else if (scrollY < fadeOutStart) {
+        opacity = 1;
+      } else if (scrollY < fadeOutEnd) {
+        const outFrac = (scrollY - fadeOutStart) / (fadeOutEnd - fadeOutStart);
+        opacity = Math.max(1 - outFrac * outFrac, 0);
       } else {
-          // Fade in curve
-          const frac = (scrollY - startFade) / (endFade - startFade);
-          // Easing function to make it smoother
-          const ease = frac < 0.5 ? 2 * frac * frac : 1 - Math.pow(-2 * frac + 2, 2) / 2;
-          el.style.opacity = String(ease);
+        opacity = 0;
       }
+      el.style.opacity = String(opacity);
     }
 
     // Initial call

@@ -61,7 +61,7 @@ const PALETTE_DARK = {
 };
 const PALETTE_LIGHT = {
   rack: "#2B2B2F", violet: "#4A4A52", cyan: "#3A3A42",
-  floor: "#475569", green: "#00C853", disk: "#64748B",
+  floor: "#475569", green: "#00C853", disk: "#20B2AA",
   amber: "#FF6D00", tube: "#3D3D45", fog: "#FAFBFE",
   oScale: 1.3,
 };
@@ -443,7 +443,11 @@ void main() {
 
 // ─── Sub-components ──────────────────────────────────────────────
 
-/** B1 + B2: Camera fly-in, dolly oscillation, scroll parallax */
+/** B1 + B2: Camera fly-in, dolly oscillation, scroll parallax
+ *  Camera is offset to X = -1.4 so the corridor vanishing point
+ *  appears in the right ~62% of the viewport (left 38% is the text panel). */
+const CAM_X_OFFSET = -1.4;
+
 function CameraDolly() {
   const startT = useRef(-1);
 
@@ -456,20 +460,24 @@ function CameraDolly() {
     if (elapsed < FLY_IN_DURATION) {
       const p = elapsed / FLY_IN_DURATION;
       baseZ = FLY_IN_START + (DOLLY_CENTER - FLY_IN_START) * (1 - Math.pow(1 - p, 3));
+      // Smoothly interpolate X offset during fly-in
+      camera.position.x = CAM_X_OFFSET * (1 - Math.pow(1 - p, 3));
     } else {
       baseZ = DOLLY_CENTER + Math.sin(t * DOLLY_SPEED) * DOLLY_AMPLITUDE;
+      camera.position.x = CAM_X_OFFSET;
     }
 
     // B1: scroll-linked dolly down — descend through the building,
     // then tilt upward so the floor's near edge appears perpendicular
     const scrollY = typeof window !== "undefined" ? window.scrollY : 0;
     const vh = typeof window !== "undefined" ? window.innerHeight : 800;
-    const sf = Math.min(scrollY / vh, 1);
-    const ease = sf * sf; // quadratic ease-in: subtle start, dramatic finish
+    // Faster descent: complete by 60vh scroll (was 100vh)
+    const sf = Math.min(scrollY / (vh * 0.6), 1);
+    const ease = sf * sf;
 
-    camera.position.z = baseZ + ease * -2;
-    camera.position.y = ease * -5;        // descend well below floor (FLOOR_Y = -1.5)
-    camera.rotation.x = ease * 1.0;       // tilt up ~57° to see floor edge from below
+    camera.position.z = baseZ;
+    camera.position.y = ease * -3;
+    // No rotation — camera stays level for multi-floor building continuity
   });
 
   return null;
@@ -728,7 +736,7 @@ export default function DatacenterScene({ isDark = true }: { isDark?: boolean })
       camera={{ position: [0, 0, FLY_IN_START], fov: 50 }}
       style={{ pointerEvents: "none" }}
       dpr={[1, 2]}
-      gl={{ antialias: true, alpha: true }}
+      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
     >
       {/* A2: Depth fog — fades distant geometry, color matches page bg */}
       <fog key={isDark ? "d" : "l"} attach="fog" args={[p.fog, 12, 26]} />
@@ -738,8 +746,8 @@ export default function DatacenterScene({ isDark = true }: { isDark?: boolean })
         <PortraitCompact>
           <Occluders />
           <CorridorStructure geos={geos} isDark={isDark} />
-          <ShaderLEDs data={statusData} color={p.green} size={0.07} glowSize={0.30} />
-          <ShaderLEDs data={diskData} color={p.disk} size={0.035} />
+          <ShaderLEDs data={statusData} color={p.green} size={0.14} glowSize={0.60} />
+          <ShaderLEDs data={diskData} color={p.disk} size={0.07} />
           <AlertFlash statusPositions={statusData.positions} alertColor={p.amber} />
           <ExitSignGlow glowColor={p.green} />
         </PortraitCompact>

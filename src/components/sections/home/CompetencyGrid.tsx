@@ -69,7 +69,7 @@ export function CompetencyGrid() {
   const t = useTranslations("home.competencies");
 
   return (
-    <section className="relative py-24 sm:py-32 bg-[var(--151-bg-section-alt)]">
+    <section className="relative py-24 sm:py-32 bg-[var(--151-bg-section-alt)]" style={{ scrollSnapAlign: "start" }}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <RevealOnScroll>
           <h2 className="font-[var(--font-display)] text-3xl sm:text-4xl font-bold text-[var(--151-text-primary)] tracking-tight text-center">

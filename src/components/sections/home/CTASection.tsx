@@ -10,7 +10,7 @@ export function CTASection() {
   const t = useTranslations("home.cta");
 
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section className="relative py-24 sm:py-32 overflow-hidden" style={{ scrollSnapAlign: "start" }}>
       <GradientOrb
         color="magenta"
         size="400px"

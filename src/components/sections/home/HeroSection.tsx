@@ -9,6 +9,15 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { FloatingLogo } from "@/components/ui/FloatingLogo";
 
+const panelStyle = {
+  background: "var(--151-glass-bg-medium)",
+  backdropFilter: "blur(24px) saturate(150%)",
+  WebkitBackdropFilter: "blur(24px) saturate(150%)",
+  borderRight: "1px solid var(--151-glass-border)",
+  boxShadow:
+    "8px 0 40px rgba(0, 0, 0, 0.12), inset -1px 0 0 var(--151-glass-border)",
+} as const;
+
 /** Fast typewriter: reveals characters one-by-one with staggered opacity. */
 function TypeWriter({
   text,
@@ -53,63 +62,67 @@ export function HeroSection() {
   const prefersReduced = useReducedMotion();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 3D Network topology (desktop only, respects reduced motion) */}
+    <section className="relative min-h-screen overflow-hidden scroll-snap-align-start" style={{ scrollSnapAlign: "start" }}>
+      {/* 3D Network topology — full viewport, camera offset shifts corridor right */}
       <NetworkTopology />
 
-      {/* Floating logo — animates from hero center to navbar on scroll */}
+      {/* Floating logo — animates from hero to navbar on scroll */}
       <FloatingLogo />
 
-      {/* Content — frosted glass container, delayed reveal */}
+      {/* ── Left panel: glass-backed text column ── */}
       <motion.div
-        className="relative z-10 mx-auto max-w-2xl px-4 sm:px-6 lg:px-8"
-        initial={prefersReduced ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 2.5, ease: [0.33, 0, 0.67, 1] }}
+        className="absolute inset-y-0 left-0 z-10 w-full md:w-[38%] flex items-center"
+        initial={prefersReduced ? false : { opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 2.5, ease: [0.22, 1, 0.36, 1] }}
       >
+        {/* Desktop: full-height glass panel flush with left edge */}
+        {/* Mobile: overlay with glass background */}
         <div
-          className="rounded-2xl px-8 py-10 sm:px-12 sm:py-14 text-center"
-          style={{
-            background: "var(--151-glass-bg-light)",
-            backdropFilter: "blur(24px) saturate(150%)",
-            WebkitBackdropFilter: "blur(24px) saturate(150%)",
-            border: "1px solid var(--151-glass-border)",
-            boxShadow: "0 8px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 var(--151-glass-border)",
-          }}
+          className="w-full h-full flex flex-col justify-center px-6 sm:px-8 md:px-10 lg:px-14 py-20 md:py-0"
+          style={panelStyle}
         >
+          {/* Logo */}
           <motion.div
-            initial={prefersReduced ? false : { opacity: 0, scale: 0.85, filter: "blur(24px)" }}
+            initial={
+              prefersReduced
+                ? false
+                : { opacity: 0, scale: 0.85, filter: "blur(24px)" }
+            }
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            transition={{ duration: 0.8, delay: 3.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 2.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <span id="hero-logo-slot" className="inline-flex">
-              <Logo151 size="hero" />
+              <Logo151 size="hero" className="!h-16 sm:!h-20 md:!h-24 lg:!h-28" />
             </span>
           </motion.div>
 
-          <p className="mt-3 text-lg sm:text-xl md:text-2xl font-medium text-[var(--151-text-secondary)] tracking-wide uppercase">
+          {/* Tagline */}
+          <p className="mt-4 text-sm sm:text-base md:text-lg font-medium text-[var(--151-text-secondary)] tracking-wide uppercase">
             <TypeWriter
               text={t("tagline")}
-              delay={3.6}
+              delay={3.2}
               speed={0.03}
               reduced={prefersReduced}
             />
           </p>
 
-          <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-[var(--151-text-muted)] leading-relaxed">
+          {/* Subtitle */}
+          <p className="mt-5 text-sm md:text-base text-[var(--151-text-muted)] leading-relaxed max-w-md">
             <TypeWriter
               text={t("subtitle")}
-              delay={3.8}
+              delay={3.6}
               speed={0.015}
               reduced={prefersReduced}
             />
           </p>
 
+          {/* CTAs */}
           <motion.div
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
             initial={prefersReduced ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.3, delay: 4.2 }}
+            transition={{ duration: 0.3, delay: 4.0 }}
           >
             <MagneticButton>
               <Link href="/methodology" className="btn-glass-primary">
@@ -123,32 +136,32 @@ export function HeroSection() {
             </MagneticButton>
           </motion.div>
         </div>
+      </motion.div>
 
-        {/* Scroll indicator */}
+      {/* Scroll indicator — centered at bottom of full viewport */}
+      <motion.div
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
+        initial={prefersReduced ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 4.4 }}
+      >
         <motion.div
-          className="mt-8"
-          initial={prefersReduced ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 4.6 }}
+          animate={prefersReduced ? {} : { y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
-          <motion.div
-            animate={prefersReduced ? {} : { y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="text-[var(--151-text-secondary)]"
+            aria-hidden="true"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              className="mx-auto text-[var(--151-text-secondary)]"
-              aria-hidden="true"
-            >
-              <polyline points="7 13 12 18 17 13" />
-              <polyline points="7 6 12 11 17 6" />
-            </svg>
-          </motion.div>
+            <polyline points="7 13 12 18 17 13" />
+            <polyline points="7 6 12 11 17 6" />
+          </svg>
         </motion.div>
       </motion.div>
     </section>
