@@ -14,7 +14,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.34.3",
     "gray-matter": "^4.0.3",
-    "next": "16.1.6",
+    "next": "16.1.7",
     "next-intl": "^4.8.3",
     "next-mdx-remote": "^6.0.0",
     "nodemailer": "^8.0.1",
